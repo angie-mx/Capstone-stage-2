@@ -1,7 +1,7 @@
 package mx.saudade.discovermusicapp.responses;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.simpleframework.xml.*;
+import org.simpleframework.xml.Element;
 
 /**
  * Created by angie on 6/19/16.
