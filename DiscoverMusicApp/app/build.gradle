@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'MUSICOVERY_API_KEY', MyMusicoveryApiKey //Format '"xxx"'
+    }
 }
 
 dependencies {
@@ -28,8 +32,11 @@ dependencies {
     compile 'com.google.android.gms:play-services-analytics:9.0.2'
     compile 'com.google.android.gms:play-services-location:9.0.2'
 
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.google.code.gson:gson:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
     testCompile 'junit:junit:4.12'

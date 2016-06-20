@@ -1,13 +1,19 @@
 package mx.saudade.discovermusicapp.responses;
 
+import com.google.gson.annotations.SerializedName;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * Created by angie on 6/19/16.
  */
-
 public class Response {
 
     private int code;
+
+    @SerializedName("anwser")
     private String answer;
+
     private double time;
 
     public int getCode() {
@@ -32,5 +38,14 @@ public class Response {
 
     public void setTime(double time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("code", code)
+                .append("answer", answer)
+                .append("time", time)
+                .toString();
     }
 }

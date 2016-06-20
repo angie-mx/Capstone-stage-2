@@ -1,19 +1,50 @@
 package mx.saudade.discovermusicapp.responses;
 
+import com.google.gson.annotations.SerializedName;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.List;
+
 /**
  * Created by angie on 6/19/16.
  */
 public class Request {
 
+    private String format;
+
     private String fct;
+
+    @SerializedName("popularitymax")
     private int popularityMax;
+
+    @SerializedName("popularitymin")
     private int popularityMin;
-    private int startTrackId;
+
+    @SerializedName("starttrackid")
+    private List<Integer> startTrackId;
+
     private boolean date70;
-    private int trackValence;
-    private int trackArousal;
-    private int resultsNumber;
+
+    @SerializedName("trackvalence")
+    private String trackValence;
+
+    @SerializedName("trackarousal")
+    private String trackArousal;
+
+    @SerializedName("resultsnumber")
+    private String resultsNumber;
+
+    @SerializedName("listenercountry")
     private String listenerCountry;
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
 
     public String getFct() {
         return fct;
@@ -39,11 +70,11 @@ public class Request {
         this.popularityMin = popularityMin;
     }
 
-    public int getStartTrackId() {
+    public List<Integer> getStartTrackId() {
         return startTrackId;
     }
 
-    public void setStartTrackId(int startTrackId) {
+    public void setStartTrackId(List<Integer> startTrackId) {
         this.startTrackId = startTrackId;
     }
 
@@ -55,27 +86,27 @@ public class Request {
         this.date70 = date70;
     }
 
-    public int getTrackValence() {
+    public String getTrackValence() {
         return trackValence;
     }
 
-    public void setTrackValence(int trackValence) {
+    public void setTrackValence(String trackValence) {
         this.trackValence = trackValence;
     }
 
-    public int getTrackArousal() {
+    public String getTrackArousal() {
         return trackArousal;
     }
 
-    public void setTrackArousal(int trackArousal) {
+    public void setTrackArousal(String trackArousal) {
         this.trackArousal = trackArousal;
     }
 
-    public int getResultsNumber() {
+    public String getResultsNumber() {
         return resultsNumber;
     }
 
-    public void setResultsNumber(int resultsNumber) {
+    public void setResultsNumber(String resultsNumber) {
         this.resultsNumber = resultsNumber;
     }
 
@@ -85,5 +116,21 @@ public class Request {
 
     public void setListenerCountry(String listenerCountry) {
         this.listenerCountry = listenerCountry;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("format", format)
+                .append("fct", fct)
+                .append("popularityMax", popularityMax)
+                .append("popularityMin", popularityMin)
+                .append("startTrackId", startTrackId)
+                .append("date70", date70)
+                .append("trackValence", trackValence)
+                .append("trackArousal", trackArousal)
+                .append("resultsNumber", resultsNumber)
+                .append("listenerCountry", listenerCountry)
+                .toString();
     }
 }

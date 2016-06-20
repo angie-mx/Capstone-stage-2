@@ -1,18 +1,25 @@
 package mx.saudade.discovermusicapp.responses;
 
+import com.google.gson.annotations.SerializedName;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.List;
 
 /**
  * Created by angie on 6/19/16.
  */
-
 public class Root {
 
     private Request request;
+
     private Response response;
-    private List<Track> tracks;
+
+    private Tracks tracks;
+
     private String played;
-    private String favonot;
+
+    private List<String> favonot;
 
     public Request getRequest() {
         return request;
@@ -30,11 +37,11 @@ public class Root {
         this.response = response;
     }
 
-    public List<Track> getTracks() {
+    public Tracks getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(Tracks tracks) {
         this.tracks = tracks;
     }
 
@@ -46,11 +53,23 @@ public class Root {
         this.played = played;
     }
 
-    public String getFavonot() {
+    public List<String> getFavonot() {
         return favonot;
     }
 
-    public void setFavonot(String favonot) {
+    public void setFavonot(List<String> favonot) {
         this.favonot = favonot;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("request", request)
+                .append("response", response)
+                .append("tracks", tracks)
+                .append("request", request)
+                .append("played", played)
+                .append("favonot", favonot)
+                .toString();
     }
 }
