@@ -12,3 +12,8 @@ When you receive your api please update MyMusicoveryApiKey in app/build.gradle.
 For your Google API take a look to: https://console.developers.google.com.
 
 When you get your Google API, please replace it in app/src/releases/res/values/google_maps_api.xml
+
+This project uses Google Analytics service. 
+You need your own google-services.json in order to track user's behaviour.
+
+For more information: https://developers.google.com/analytics/devguides/collection/android/v4/
