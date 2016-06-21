@@ -49,8 +49,8 @@ public final class PreferencesUtils {
         setInt(context, RESULTS_NUMBER_KEY, resultsNumber);
     }
 
-    public static int getLocation(Context context) {
-        return getInt(context, LOCATION_KEY);
+    public static String getLocation(Context context) {
+        return getString(context, LOCATION_KEY);
     }
 
     public static void setLocation(Context context, String location) {
