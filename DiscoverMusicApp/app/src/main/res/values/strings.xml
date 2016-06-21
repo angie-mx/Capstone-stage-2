@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DiscoverMusicApp</string>
+
+    <!-- permission handler -->
+    <string name="ok_button">Retry it</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="location_permission_title">Access fine location permission</string>
+    <string name="location_permission_message">This permission let the application get your precise current location</string>
+
 </resources>
