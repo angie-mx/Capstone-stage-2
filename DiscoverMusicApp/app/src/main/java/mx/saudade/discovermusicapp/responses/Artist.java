@@ -9,12 +9,22 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class Artist {
 
+    private int id;
+
     private String name;
 
     private String mbid;
 
     @SerializedName("imgurl")
     private String imgUrl;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,6 +53,7 @@ public class Artist {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .append("id", id)
                 .append("name", name)
                 .append("mbid", mbid)
                 .append("imgUrl", imgUrl)
