@@ -34,6 +34,8 @@ public class Track {
 
     private int favorite;
 
+    private String lyrics;
+
     public int getId() {
         return id;
     }
@@ -122,6 +124,14 @@ public class Track {
         this.favorite = favorite;
     }
 
+    public String getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(String lyrics) {
+        this.lyrics = lyrics;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -136,6 +146,7 @@ public class Track {
                 .append("originalId", originalId)
                 .append("asin", asin)
                 .append("favorite", favorite)
+                .append("lyrics", lyrics)
                 .toString();
     }
 }
