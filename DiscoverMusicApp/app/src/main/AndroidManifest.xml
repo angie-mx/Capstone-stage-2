@@ -32,6 +32,8 @@
             android:name=".data.AppContentProvider"
             android:exported="false" />
         <service android:name=".services.MoodPlaylistService" android:exported="false" />
+        <service android:name=".services.LyricsService" android:exported="false" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
