@@ -1,13 +1,15 @@
 package mx.saudade.discovermusicapp.responses;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.simpleframework.xml.Element;
 
 /**
  * Created by angie on 6/19/16.
  */
-public class Artist {
+public class Artist implements Parcelable {
 
     private int id;
 
@@ -15,8 +17,29 @@ public class Artist {
 
     private String mbid;
 
-    @SerializedName("imgurl")
+    @Element(name = "imgurl")
     private String imgUrl;
+
+    public Artist() { }
+
+    protected Artist(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        mbid = in.readString();
+        imgUrl = in.readString();
+    }
+
+    public static final Creator<Artist> CREATOR = new Creator<Artist>() {
+        @Override
+        public Artist createFromParcel(Parcel in) {
+            return new Artist(in);
+        }
+
+        @Override
+        public Artist[] newArray(int size) {
+            return new Artist[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -58,5 +81,18 @@ public class Artist {
                 .append("mbid", mbid)
                 .append("imgUrl", imgUrl)
                 .toString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(mbid);
+        dest.writeString(imgUrl);
     }
 }

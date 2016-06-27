@@ -1,15 +1,17 @@
 package mx.saudade.discovermusicapp.responses;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.simpleframework.xml.Element;
 
 import java.util.List;
 
 /**
  * Created by angie on 6/19/16.
  */
-public class Track {
+public class Track  implements Parcelable {
 
     private int id;
 
@@ -17,7 +19,7 @@ public class Track {
 
     private Artist artist;
 
-    @SerializedName("releasedate")
+    @Element(name = "releasedate")
     private int releaseDate;
 
     private String genre;
@@ -35,6 +37,34 @@ public class Track {
     private int favorite;
 
     private String lyrics;
+
+    public Track() { }
+
+    protected Track(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        releaseDate = in.readInt();
+        genre = in.readString();
+        arousal = in.readInt();
+        valence = in.readInt();
+        popularity = in.readInt();
+        originalId = in.createStringArrayList();
+        asin = in.createStringArrayList();
+        favorite = in.readInt();
+        lyrics = in.readString();
+    }
+
+    public static final Creator<Track> CREATOR = new Creator<Track>() {
+        @Override
+        public Track createFromParcel(Parcel in) {
+            return new Track(in);
+        }
+
+        @Override
+        public Track[] newArray(int size) {
+            return new Track[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -148,5 +178,25 @@ public class Track {
                 .append("favorite", favorite)
                 .append("lyrics", lyrics)
                 .toString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(title);
+        dest.writeInt(releaseDate);
+        dest.writeString(genre);
+        dest.writeInt(arousal);
+        dest.writeInt(valence);
+        dest.writeInt(popularity);
+        dest.writeStringList(originalId);
+        dest.writeStringList(asin);
+        dest.writeInt(favorite);
+        dest.writeString(lyrics);
     }
 }

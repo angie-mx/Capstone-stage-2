@@ -1,23 +1,53 @@
 package mx.saudade.discovermusicapp.responses;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 import java.util.List;
 
 /**
  * Created by angie on 6/19/16.
  */
-public class Root {
+@org.simpleframework.xml.Root(name = "root")
+public class Root implements Parcelable {
 
+    @Element(name = "request")
     private Request request;
 
+    @Element(name = "response")
     private Response response;
 
-    private Tracks tracks;
+    @ElementList(name = "tracks")
+    private List<Track> tracks;
 
+    @Element(name = "played")
     private String played;
 
+    @ElementList(name = "favonot")
     private List<String> favonot;
+
+    public Root() { }
+
+    protected Root(Parcel in) {
+        played = in.readString();
+        favonot = in.createStringArrayList();
+    }
+
+    public static final Creator<Root> CREATOR = new Creator<Root>() {
+        @Override
+        public Root createFromParcel(Parcel in) {
+            return new Root(in);
+        }
+
+        @Override
+        public Root[] newArray(int size) {
+            return new Root[size];
+        }
+    };
 
     public Request getRequest() {
         return request;
@@ -35,11 +65,11 @@ public class Root {
         this.response = response;
     }
 
-    public Tracks getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 
-    public void setTracks(Tracks tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 
@@ -69,5 +99,16 @@ public class Root {
                 .append("played", played)
                 .append("favonot", favonot)
                 .toString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(played);
+        dest.writeStringList(favonot);
     }
 }
