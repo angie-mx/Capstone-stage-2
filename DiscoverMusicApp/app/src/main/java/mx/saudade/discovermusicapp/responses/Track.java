@@ -24,7 +24,7 @@ public class Track  implements Parcelable {
     private Artist artist;
 
     @Element(name = "releasedate")
-    private int releaseDate;
+    private String releaseDate;
 
     @Element(name = "genre")
     private String genre;
@@ -55,7 +55,7 @@ public class Track  implements Parcelable {
     protected Track(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        releaseDate = in.readInt();
+        releaseDate = in.readString();
         genre = in.readString();
         arousal = in.readInt();
         valence = in.readInt();
@@ -102,11 +102,11 @@ public class Track  implements Parcelable {
         this.artist = artist;
     }
 
-    public int getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(int releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -201,7 +201,7 @@ public class Track  implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(title);
-        dest.writeInt(releaseDate);
+        dest.writeString(releaseDate);
         dest.writeString(genre);
         dest.writeInt(arousal);
         dest.writeInt(valence);

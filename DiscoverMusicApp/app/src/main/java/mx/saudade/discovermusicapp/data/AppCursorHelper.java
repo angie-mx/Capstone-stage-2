@@ -75,7 +75,7 @@ public class AppCursorHelper {
             track.setId(cursor.getInt(TrackEntry.INDEX_COLUMN_ID));
             track.setTitle(cursor.getString(TrackEntry.INDEX_COLUMN_TITLE));
             track.setArtist(getArtist(cursor.getInt(TrackEntry.INDEX_COLUMN_ARTIST_ID)));
-            track.setReleaseDate(cursor.getInt(TrackEntry.INDEX_COLUMN_RELEASE_DATE));
+            track.setReleaseDate(cursor.getString(TrackEntry.INDEX_COLUMN_RELEASE_DATE));
             track.setGenre(cursor.getString(TrackEntry.INDEX_COLUMN_GENRE));
             track.setArousal(cursor.getInt(TrackEntry.INDEX_COLUMN_AROUSAL));
             track.setValence(cursor.getInt(TrackEntry.INDEX_COLUMN_VALENCE));
@@ -102,7 +102,7 @@ public class AppCursorHelper {
                 track.setId(cursor.getInt(TrackEntry.INDEX_COLUMN_ID));
                 track.setTitle(cursor.getString(TrackEntry.INDEX_COLUMN_TITLE));
                 track.setArtist(getArtist(cursor.getInt(TrackEntry.INDEX_COLUMN_ARTIST_ID)));
-                track.setReleaseDate(cursor.getInt(TrackEntry.INDEX_COLUMN_RELEASE_DATE));
+                track.setReleaseDate(cursor.getString(TrackEntry.INDEX_COLUMN_RELEASE_DATE));
                 track.setGenre(cursor.getString(TrackEntry.INDEX_COLUMN_GENRE));
                 track.setArousal(cursor.getInt(TrackEntry.INDEX_COLUMN_AROUSAL));
                 track.setValence(cursor.getInt(TrackEntry.INDEX_COLUMN_VALENCE));

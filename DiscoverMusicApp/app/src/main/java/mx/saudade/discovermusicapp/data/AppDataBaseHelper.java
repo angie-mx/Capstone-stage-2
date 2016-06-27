@@ -34,7 +34,7 @@ public class AppDataBaseHelper extends SQLiteOpenHelper {
                         TrackEntry._ID + " INTEGER PRIMARY KEY, " +
                         TrackEntry.COLUMN_TITLE + " VARCHAR(100), " +
                         TrackEntry.COLUMN_ARTIST_ID + " INTEGER, " +
-                        TrackEntry.COLUMN_RELEASE_DATE + " INTEGER, " +
+                        TrackEntry.COLUMN_RELEASE_DATE + " VARCHAR(100), " +
                         TrackEntry.COLUMN_GENRE + " VARCHAR(100), " +
                         TrackEntry.COLUMN_AROUSAL + " INTEGER, " +
                         TrackEntry.COLUMN_VALENCE + " INTEGER, " +
