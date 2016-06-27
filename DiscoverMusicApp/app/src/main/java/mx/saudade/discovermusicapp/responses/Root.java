@@ -27,7 +27,7 @@ public class Root implements Parcelable {
     @Element(name = "played")
     private String played;
 
-    @ElementList(name = "favonot")
+    @ElementList(name = "favonot", required = false)
     private List<String> favonot;
 
     public Root() { }
