@@ -1,5 +1,8 @@
 package mx.saudade.discovermusicapp.responses;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.simpleframework.xml.Element;
 
@@ -8,7 +11,7 @@ import org.simpleframework.xml.Element;
  */
 
 @org.simpleframework.xml.Root(name = "GetLyricResult")
-public class LyricsResult {
+public class LyricsResult implements Parcelable {
 
     @Element(name = "TrackId")
     private int trackId;
@@ -40,6 +43,33 @@ public class LyricsResult {
     @Element(name = "Lyric")
     private String lyric;
 
+    public LyricsResult() { }
+
+    protected LyricsResult(Parcel in) {
+        trackId = in.readInt();
+        checksum = in.readString();
+        id = in.readInt();
+        song = in.readString();
+        artist = in.readString();
+        url = in.readString();
+        covertArtUrl = in.readString();
+        rank = in.readInt();
+        correctUrl = in.readString();
+        lyric = in.readString();
+    }
+
+    public static final Creator<LyricsResult> CREATOR = new Creator<LyricsResult>() {
+        @Override
+        public LyricsResult createFromParcel(Parcel in) {
+            return new LyricsResult(in);
+        }
+
+        @Override
+        public LyricsResult[] newArray(int size) {
+            return new LyricsResult[size];
+        }
+    };
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -56,4 +86,22 @@ public class LyricsResult {
                 .toString();
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(trackId);
+        dest.writeString(checksum);
+        dest.writeInt(id);
+        dest.writeString(song);
+        dest.writeString(artist);
+        dest.writeString(url);
+        dest.writeString(covertArtUrl);
+        dest.writeInt(rank);
+        dest.writeString(correctUrl);
+        dest.writeString(lyric);
+    }
 }
