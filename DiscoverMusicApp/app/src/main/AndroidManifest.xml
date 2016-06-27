@@ -34,6 +34,7 @@
         <service android:name=".services.MoodPlaylistService" android:exported="false" />
         <service android:name=".services.LyricsService" android:exported="false" />
         <service android:name=".services.TrackPlaylistService" android:exported="false" />
+        <service android:name=".services.ArtistPlaylistService" android:exported="false" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
