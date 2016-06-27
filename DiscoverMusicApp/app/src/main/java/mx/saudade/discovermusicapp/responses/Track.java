@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 import java.util.List;
 
@@ -13,29 +14,40 @@ import java.util.List;
  */
 public class Track  implements Parcelable {
 
+    @Element(name = "id")
     private int id;
 
+    @Element(name = "title")
     private String title;
 
+    @Element(name = "artist")
     private Artist artist;
 
     @Element(name = "releasedate")
     private int releaseDate;
 
+    @Element(name = "genre")
     private String genre;
 
+    @Element(name = "arousal")
     private int arousal;
 
+    @Element(name = "valence")
     private int valence;
 
+    @Element(name = "popularity")
     private int popularity;
 
+    @ElementList(name = "originalid", required = false)
     private List<String> originalId;
 
+    @ElementList(name = "ASIN", required = false)
     private List<String> asin;
 
+    @Element(name = "favorite")
     private int favorite;
 
+    @Element(required = false)
     private String lyrics;
 
     public Track() { }

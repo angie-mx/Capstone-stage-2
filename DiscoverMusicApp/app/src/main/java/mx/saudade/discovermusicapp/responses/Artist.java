@@ -13,8 +13,10 @@ public class Artist implements Parcelable {
 
     private int id;
 
+    @Element(name = "name")
     private String name;
 
+    @Element(name = "mbid")
     private String mbid;
 
     @Element(name = "imgurl")
