@@ -10,10 +10,10 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.saudade.discovermusicapp.data.AppContract.ArtistEntry;
+import mx.saudade.discovermusicapp.data.AppContract.TrackEntry;
 import mx.saudade.discovermusicapp.responses.Artist;
 import mx.saudade.discovermusicapp.responses.Track;
-
-import mx.saudade.discovermusicapp.data.AppContract.*;
 
 /**
  * Created by angie on 6/26/16.
