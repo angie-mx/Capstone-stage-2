@@ -73,7 +73,7 @@ public class LocationHandler implements GoogleApiClient.ConnectionCallbacks
         }
         location = LocationServices.FusedLocationApi.getLastLocation(
                 googleApiClient);
-        Log.i(TAG, "location " + location.toString());
+        Log.i(TAG, "location " + location);
     }
 
     @Override
