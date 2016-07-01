@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:text="@string/settings_popularity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/subtitle_text" />
+
+        <com.appyvet.rangebar.RangeBar
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/popularity_rangebar"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            custom:tickStart="0"
+            custom:tickInterval="1"
+            custom:tickEnd="100"
+            custom:tickColor="@android:color/transparent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:text="@string/settings_listener_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/subtitle_text"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/settings_listener_country" />
+
+        <Button
+            android:text="@string/settings_use_my_current_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings_current_location"
+            android:layout_gravity="right" />
+
+        <TextView
+            android:text="@string/settings_results_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/subtitle_text"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/settings_results_number" />
+
+        <Button
+            android:text="@string/settings_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings_save_changes"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
