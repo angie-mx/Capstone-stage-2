@@ -12,5 +12,17 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">15dp</item>
     </style>
-
+    <style name="title_text">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">15dp</item>
+    </style>
+    <style name="footer_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_margin">15dp</item>
+    </style>
+    <style name="body_text">
+        <item name="android:layout_margin">15dp</item>
+    </style>
 </resources>
