@@ -17,6 +17,7 @@ import android.widget.SeekBar;
 
 import org.apache.commons.lang3.StringUtils;
 
+import mx.saudade.discovermusicapp.MainActivity;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.controllers.MoodController;
 import mx.saudade.discovermusicapp.services.MoodPlaylistService;
@@ -96,9 +97,18 @@ public class DiscoverFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Parcelable parcelable = intent.getParcelableExtra(MoodPlaylistService.WEB_SERVICE_EXTRA);
-            //TODO send this result to the next screen
+            ((MainActivity) getActivity()).loadFragment(createPlaylistFragment(parcelable)
+                    , MainActivity.PLAYLIST_FRAGMENT_ID);
         }
     };
+
+    private Fragment createPlaylistFragment(Parcelable parcelable) {
+        Fragment playlistFragment = new PlaylistFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(PlaylistFragment.TRACKS_KEY, parcelable);
+        playlistFragment.setArguments(bundle);
+        return playlistFragment;
+    }
 
     private Button getButton(int id) {
         return (Button) getView().findViewById(id);
