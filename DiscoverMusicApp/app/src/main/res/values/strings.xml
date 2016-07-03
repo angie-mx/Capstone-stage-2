@@ -7,6 +7,14 @@
     <string name="location_permission_title">Access fine location permission</string>
     <string name="location_permission_message">This permission let the application get your precise current location</string>
 
+    <!-- DISCOVER -->
+    <string name="arousal">Arousal</string>
+    <string name="valence">Valence</string>
+    <string name="energic">Energic</string>
+    <string name="calm">Calm</string>
+    <string name="dark">Dark</string>
+    <string name="positive">Positive</string>
+    
     <string name="year_before_50">&lt;&lt;</string>
     <string name="year_50">50</string>
     <string name="year_60">60</string>
@@ -34,6 +42,10 @@
     <string name="genre_metal">Metal</string>
     <string name="genre_all">All genres</string>
     <string name="genre_none">No genre</string>
+
+    <string name="decade">Decade</string>
+    <string name="genre">Genre</string>
+    <string name="search">Search</string>
 
     <!-- SETTINGS -->
     <string name="settings_popularity">Popularity (range between 0=discover and 100=hit):</string>

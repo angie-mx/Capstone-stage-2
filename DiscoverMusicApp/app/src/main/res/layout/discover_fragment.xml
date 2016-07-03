@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:text="@string/arousal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/subtitle_text"
+                android:id="@+id/arousal"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arousal"
+                android:id="@+id/arousal_seekbar"
+                android:layout_toRightOf="@+id/energic"
+                android:layout_toLeftOf="@+id/calm"
+                android:max="1000000"/>
+
+            <TextView
+                android:text="@string/valence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arousal_seekbar"
+                style="@style/subtitle_text"
+                android:id="@+id/valence"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/valence"
+                android:id="@+id/valence_seekbar"
+                android:layout_toLeftOf="@+id/positive"
+                android:layout_toRightOf="@id/dark"
+                android:max="1000000"/>
+
+            <TextView
+                android:text="@string/energic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/arousal"
+                android:id="@+id/energic"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:text="@string/calm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/arousal"
+                android:layout_alignParentRight="true"
+                android:id="@+id/calm"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:text="@string/dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/valence"
+                android:id="@+id/dark"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:text="@string/positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/valence"
+                android:layout_alignParentRight="true"
+                android:id="@+id/positive"
+                android:layout_marginRight="10dp"/>
+
+            <!-- decades -->
+            <TextView
+                android:text="@string/decade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dark"
+                android:id="@+id/decade"
+                style="@style/subtitle_text"/>
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_before_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_before_50"
+                app:layout_widthPercent="12%"
+                app:selected_color="@color/years"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_50"
+                android:layout_toRightOf="@id/year_before_50"
+                android:layout_below="@id/decade"
+                app:layout_widthPercent="13%"
+                app:selected_color="@color/years" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_60"
+                app:layout_widthPercent="12%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_50"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_70"
+                app:layout_widthPercent="13%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_60"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_80"
+                app:layout_widthPercent="12%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_70"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_90"
+                app:layout_widthPercent="13%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_80"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_00"
+                app:layout_widthPercent="12%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_90"
+                android:layout_below="@id/decade" />
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/year_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_10"
+                app:layout_widthPercent="13%"
+                app:selected_color="@color/years"
+                android:layout_toRightOf="@id/year_00"
+                android:layout_below="@id/decade" />
+            <!-- genres -->
+            <TextView
+                android:text="@string/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genre"
+                style="@style/subtitle_text"
+                android:layout_below="@id/year_before_50"/>
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_rock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genre_rock_button"
+                android:layout_below="@id/genre"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/rock" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_pop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genre_pop_button"
+                android:layout_toRightOf="@+id/genre_rock_button"
+                android:layout_below="@id/genre"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/pop" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_folk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genre_folk_button"
+                android:layout_toRightOf="@+id/genre_pop_button"
+                android:layout_below="@id/genre"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/folk" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_electro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genre_electro_button"
+                android:layout_below="@+id/genre_rock_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/electro" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_r_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/genre_electro_button"
+                android:layout_alignLeft="@+id/genre_pop_button"
+                android:id="@+id/genre_r_b_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/r_b" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_hip_hop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/genre_r_b_button"
+                android:layout_alignLeft="@+id/genre_folk_button"
+                android:id="@+id/genre_hip_hop_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/hip_hop" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_vocal_pop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_electro_button"
+                android:id="@+id/genre_vocal_pop_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/pop" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_soundtrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_r_b_button"
+                android:layout_alignLeft="@+id/genre_r_b_button"
+                android:id="@+id/genre_soundtrack_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/soundtrack" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_classical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_hip_hop_button"
+                android:layout_alignLeft="@+id/genre_hip_hop_button"
+                android:id="@+id/genre_classical_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/classical" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_latin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_vocal_pop_button"
+                android:id="@+id/genre_latin_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/latin" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_world"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_soundtrack_button"
+                android:layout_toLeftOf="@+id/genre_classical_button"
+                android:id="@+id/genre_world_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/world" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_reggae"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_classical_button"
+                android:layout_toRightOf="@+id/genre_world_button"
+                android:id="@+id/genre_reggae_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/reggae" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_blues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_latin_button"
+                android:id="@+id/genre_blues_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/blues" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_jazz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_world_button"
+                android:layout_alignLeft="@+id/genre_soundtrack_button"
+                android:id="@+id/genre_jazz_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/jazz" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_reggae_button"
+                android:layout_alignLeft="@+id/genre_reggae_button"
+                android:id="@+id/genre_country_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/country" />
+
+            <mx.saudade.discovermusicapp.ui.StateButton
+                android:text="@string/genre_metal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_blues_button"
+                android:id="@+id/genre_metal_button"
+                app:layout_widthPercent="33%"
+                app:selected_color="@color/metal" />
+
+            <Button
+                android:text="@string/genre_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_jazz_button"
+                android:layout_toLeftOf="@+id/genre_country_button"
+                android:id="@+id/genre_all_button"
+                app:layout_widthPercent="33%"
+                android:background="@color/all_none" />
+
+            <Button
+                android:text="@string/genre_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genre_country_button"
+                android:layout_toRightOf="@+id/genre_all_button"
+                android:id="@+id/genre_none_button"
+                app:layout_widthPercent="33%"
+                android:background="@color/all_none" />
+
+            <Button
+                android:text="@string/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/search_button"
+                android:layout_below="@id/genre_all_button" />
+        </android.support.percent.PercentRelativeLayout>
+    </ScrollView>
+</LinearLayout>
