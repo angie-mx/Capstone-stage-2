@@ -53,6 +53,7 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
                         , Toast.LENGTH_SHORT).show();
             }
         });
+        holder.setIsRecyclable(false);
         return holder;
     }
 
