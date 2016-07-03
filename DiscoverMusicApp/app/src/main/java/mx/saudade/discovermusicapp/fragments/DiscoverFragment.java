@@ -9,6 +9,7 @@ import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,11 @@ import android.widget.SeekBar;
 
 import org.apache.commons.lang3.StringUtils;
 
-import mx.saudade.discovermusicapp.MainActivity;
 import mx.saudade.discovermusicapp.R;
+import mx.saudade.discovermusicapp.activities.PlaylistActivity;
 import mx.saudade.discovermusicapp.controllers.MoodController;
 import mx.saudade.discovermusicapp.services.MoodPlaylistService;
+import mx.saudade.discovermusicapp.utils.ActivityUtils;
 
 /**
  * Created by angie on 7/1/16.
@@ -97,18 +99,10 @@ public class DiscoverFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Parcelable parcelable = intent.getParcelableExtra(MoodPlaylistService.WEB_SERVICE_EXTRA);
-            ((MainActivity) getActivity()).loadFragment(createPlaylistFragment(parcelable)
-                    , MainActivity.PLAYLIST_FRAGMENT_ID);
+            ActivityUtils.loadActivity((AppCompatActivity) getActivity()
+                    , PlaylistActivity.class, PlaylistActivity.TRACKS_EXTRA_KEY, parcelable);
         }
     };
-
-    private Fragment createPlaylistFragment(Parcelable parcelable) {
-        Fragment playlistFragment = new PlaylistFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(PlaylistFragment.TRACKS_KEY, parcelable);
-        playlistFragment.setArguments(bundle);
-        return playlistFragment;
-    }
 
     private Button getButton(int id) {
         return (Button) getView().findViewById(id);
