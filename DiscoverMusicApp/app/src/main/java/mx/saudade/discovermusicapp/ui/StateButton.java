@@ -7,8 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 
-import org.apache.commons.lang3.StringUtils;
-
 import mx.saudade.discovermusicapp.R;
 
 /**
