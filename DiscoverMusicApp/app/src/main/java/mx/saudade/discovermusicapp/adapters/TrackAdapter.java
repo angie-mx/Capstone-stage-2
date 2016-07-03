@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.responses.Track;
+import mx.saudade.discovermusicapp.utils.AdapterUtils;
 
 /**
  * Created by angie on 6/28/16.
@@ -58,15 +60,15 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(mx.saudade.discovermusicapp.adapters.ViewHolder holder
             , int position) {
         Track track = tracks.get(position);
+
+        holder.layout.setBackgroundColor(AdapterUtils.getColorFromGenre(activity, track.getGenre()));
+
         holder.title.setText(track.getTitle());
 
         if(track.getArtist() != null) {
             holder.artist.setText(track.getArtist().getName());
-            Picasso.with(activity).load(track.getArtist().getImgUrl())
-                    .placeholder(R.drawable.no_cover).into(holder.cover);
         } else {
             holder.artist.setText(StringUtils.EMPTY);
-            holder.cover.setImageResource(R.drawable.no_cover);
         }
     }
 
@@ -78,16 +80,16 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
 }
 
 class ViewHolder extends RecyclerView.ViewHolder {
+    public RelativeLayout layout;
     public TextView title;
     public TextView artist;
-    public ImageView cover;
     public ImageButton play;
 
     public ViewHolder(View itemView) {
         super(itemView);
+        layout = (RelativeLayout) itemView.findViewById(R.id.item_layout);
         title = (TextView) itemView.findViewById(R.id.item_title);
         artist = (TextView) itemView.findViewById(R.id.item_artist);
-        cover = (ImageView) itemView.findViewById(R.id.item_cover);
         play = (ImageButton) itemView.findViewById(R.id.item_play);
     }
 
