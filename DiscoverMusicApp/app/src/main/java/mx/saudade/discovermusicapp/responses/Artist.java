@@ -19,7 +19,7 @@ public class Artist implements Parcelable {
     @Element(name = "mbid")
     private String mbid;
 
-    @Element(name = "imgurl")
+    @Element(name = "imgurl", required = false)
     private String imgUrl;
 
     public Artist() { }
