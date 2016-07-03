@@ -3,4 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="no_selected_button">@android:color/white</color>
+
+    <color name="rock">#3d61ad</color>
+    <color name="pop">#75c2d2</color>
+    <color name="folk">#2e55b5</color>
+    <color name="electro">#f29aae</color>
+    <color name="r_b">#da1d7f</color>
+    <color name="hip_hop">#92200a</color>
+    <color name="vocal">#c6b8b0</color>
+    <color name="soundtrack">#eee600</color>
+    <color name="classical">#83726a</color>
+    <color name="latin">#f7b500</color>
+    <color name="world">#909100</color>
+    <color name="reggae">#9be207</color>
+    <color name="blues">#7c00b6</color>
+    <color name="jazz">#a84686</color>
+    <color name="country">#8284a0</color>
+    <color name="metal">#474747</color>
+    <color name="all_none">#dddddd</color>
+    <color name="years">#999999</color>
+
 </resources>
