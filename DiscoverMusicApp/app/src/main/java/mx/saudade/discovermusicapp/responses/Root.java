@@ -33,6 +33,9 @@ public class Root implements Parcelable {
     public Root() { }
 
     protected Root(Parcel in) {
+        request = in.readParcelable(Request.class.getClassLoader());
+        response = in.readParcelable(Response.class.getClassLoader());
+        tracks = in.createTypedArrayList(Track.CREATOR);
         played = in.readString();
         favonot = in.createStringArrayList();
     }
@@ -108,6 +111,9 @@ public class Root implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(request, flags);
+        dest.writeParcelable(response, flags);
+        dest.writeTypedList(tracks);
         dest.writeString(played);
         dest.writeStringList(favonot);
     }

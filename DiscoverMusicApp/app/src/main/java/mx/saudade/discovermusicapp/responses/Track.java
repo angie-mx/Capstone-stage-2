@@ -52,9 +52,11 @@ public class Track  implements Parcelable {
 
     public Track() { }
 
+
     protected Track(Parcel in) {
         id = in.readInt();
         title = in.readString();
+        artist = in.readParcelable(Artist.class.getClassLoader());
         releaseDate = in.readString();
         genre = in.readString();
         arousal = in.readInt();
@@ -201,6 +203,7 @@ public class Track  implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(title);
+        dest.writeParcelable(artist, flags);
         dest.writeString(releaseDate);
         dest.writeString(genre);
         dest.writeInt(arousal);
