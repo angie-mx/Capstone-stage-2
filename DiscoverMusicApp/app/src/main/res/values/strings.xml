@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Discover Music App</string>
+    <string name="app_name">Discover Music</string>
 
     <!-- permission handler -->
     <string name="ok_button">Retry it</string>
@@ -63,6 +63,9 @@
     <string name="service_genre_jazz">jazz</string>
     <string name="service_genre_country">country</string>
     <string name="service_genre_metal">metal</string>
+
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
 
     <!-- SETTINGS -->
     <string name="settings_popularity">Popularity (range between 0=discover and 100=hit):</string>
