@@ -1,6 +1,7 @@
 package mx.saudade.discovermusicapp.adapters;
 
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.responses.Track;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 import mx.saudade.discovermusicapp.utils.AdapterUtils;
 
 /**
@@ -46,8 +48,9 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, "play " + tracks.get(holder.getAdapterPosition()).getTitle()
-                        , Toast.LENGTH_SHORT).show();
+                Track track = tracks.get(holder.getAdapterPosition());
+                NavigationUtils.startYoutube((AppCompatActivity) activity, track.getTitle()
+                        , track.getArtist().getName());
             }
         });
         holder.setIsRecyclable(false);
