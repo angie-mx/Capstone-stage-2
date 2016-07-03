@@ -98,9 +98,11 @@ public abstract class TemplateService extends IntentService {
         while ((line = reader.readLine()) != null) {
             buffer.append(line + "\n");
         }
-        buffer.toString().replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", StringUtils.EMPTY);
-        Log.d(TAG, "READER " + buffer.toString());
-        return buffer.toString();
+        String temp = buffer.toString().replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+                , StringUtils.EMPTY);
+        temp = temp.replace("&", "and");
+        Log.d(TAG, "READER " + temp);
+        return temp;
     }
 
     protected abstract Uri getUri(Intent intent);
