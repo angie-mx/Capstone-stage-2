@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.DiscoverFragment;
-import mx.saudade.discovermusicapp.utils.ActivityUtils;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityUtils.loadFragment(this, new DiscoverFragment());
+        NavigationUtils.loadFragment(this, new DiscoverFragment());
     }
 
     @Override
@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            ActivityUtils.loadActivity(this, SettingsActivity.class);
+            NavigationUtils.loadActivity(this, SettingsActivity.class);
             return true;
         } else if (id == R.id.action_about) {
-            ActivityUtils.loadActivity(this, AboutActivity.class);
+            NavigationUtils.loadActivity(this, AboutActivity.class);
         }
 
         return super.onOptionsItemSelected(item);

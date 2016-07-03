@@ -22,7 +22,7 @@ import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.activities.PlaylistActivity;
 import mx.saudade.discovermusicapp.controllers.MoodController;
 import mx.saudade.discovermusicapp.services.MoodPlaylistService;
-import mx.saudade.discovermusicapp.utils.ActivityUtils;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 
 /**
  * Created by angie on 7/1/16.
@@ -99,7 +99,7 @@ public class DiscoverFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Parcelable parcelable = intent.getParcelableExtra(MoodPlaylistService.WEB_SERVICE_EXTRA);
-            ActivityUtils.loadActivity((AppCompatActivity) getActivity()
+            NavigationUtils.loadActivity((AppCompatActivity) getActivity()
                     , PlaylistActivity.class, PlaylistActivity.TRACKS_EXTRA_KEY, parcelable);
         }
     };

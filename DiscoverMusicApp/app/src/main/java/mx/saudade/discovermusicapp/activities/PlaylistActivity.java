@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.PlaylistFragment;
-import mx.saudade.discovermusicapp.utils.ActivityUtils;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 
 /**
  * Created by angie on 7/3/16.
@@ -25,7 +25,7 @@ public class PlaylistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Fragment fragment = createPlaylistFragment(getExtra());
-        ActivityUtils.loadFragment(this, fragment);
+        NavigationUtils.loadFragment(this, fragment);
     }
 
     private Parcelable getExtra() {
@@ -35,6 +35,7 @@ public class PlaylistActivity extends AppCompatActivity {
         return this.getIntent().getParcelableExtra(TRACKS_EXTRA_KEY);
     }
 
+    //TODO search and display the first result automatically
     private Fragment createPlaylistFragment(Parcelable parcelable) {
         Fragment playlistFragment = new PlaylistFragment();
         Bundle bundle = new Bundle();

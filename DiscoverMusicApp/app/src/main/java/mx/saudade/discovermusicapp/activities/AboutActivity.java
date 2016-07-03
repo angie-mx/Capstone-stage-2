@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.AboutFragment;
-import mx.saudade.discovermusicapp.utils.ActivityUtils;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 
 /**
  * Created by angie on 7/3/16.
@@ -18,6 +18,6 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityUtils.loadFragment(this, new AboutFragment());
+        NavigationUtils.loadFragment(this, new AboutFragment());
     }
 }
