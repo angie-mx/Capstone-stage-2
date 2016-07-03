@@ -215,7 +215,7 @@
                 android:id="@+id/genre_r_b_button"
                 app:layout_widthPercent="33%"
                 app:selected_color="@color/r_b"
-                app:service_genre="@string/genre_r_b"/>
+                app:service_genre="@string/service_genre_r_b"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_hip_hop"
@@ -235,7 +235,7 @@
                 android:layout_below="@+id/genre_electro_button"
                 android:id="@+id/genre_vocal_pop_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/pop"
+                app:selected_color="@color/vocal"
                 app:service_genre="@string/service_genre_vocal_pop"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton

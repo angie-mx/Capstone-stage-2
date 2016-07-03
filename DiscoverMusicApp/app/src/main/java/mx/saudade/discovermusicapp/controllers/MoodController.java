@@ -41,9 +41,9 @@ public class MoodController {
     public String getMoods() {
         StringBuilder moods = new StringBuilder();
         for (int i = 0; i < GENRES_BUTTON_SIZE; i++) {
-            if (genresButtons[i].isStateSelected()) {
+            if (!genresButtons[i].isStateSelected()) {
                 moods.append(genresButtons[i].getServiceGenre());
-                moods.append(", ");
+                moods.append(",");
             }
         }
         return moods.toString();
