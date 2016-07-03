@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 
+import org.apache.commons.lang3.StringUtils;
+
 import mx.saudade.discovermusicapp.R;
 
 /**
@@ -19,6 +21,8 @@ public class StateButton extends Button implements View.OnClickListener {
     private int noSelectedColor;
 
     private int selectedColor;
+
+    private String serviceGenre;
 
     public StateButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -34,6 +38,7 @@ public class StateButton extends Button implements View.OnClickListener {
         noSelectedColor = ContextCompat.getColor(context, R.color.no_selected_button);
         setOnClickListener(this);
         getAttributeColor(context, attrs);
+        getAttributeServiceGenre(context, attrs);
     }
 
     private void getAttributeColor(Context context, AttributeSet attrs) {
@@ -44,6 +49,23 @@ public class StateButton extends Button implements View.OnClickListener {
         } finally {
             a.recycle();
         }
+    }
+
+    private void getAttributeServiceGenre(Context context, AttributeSet attrs) {
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.StateButton, 0, 0);
+        try {
+            serviceGenre = a.getString(R.styleable.StateButton_service_genre);
+        } finally {
+            a.recycle();
+        }
+    }
+
+    public String getServiceGenre() {
+        return serviceGenre;
+    }
+
+    public boolean isStateSelected() {
+        return stateSelected;
     }
 
     @Override

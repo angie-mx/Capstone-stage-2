@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="StateButton">
         <attr name="selected_color" format="reference" />
+        <attr name="service_genre" format="string" />
     </declare-styleable>
 </resources>

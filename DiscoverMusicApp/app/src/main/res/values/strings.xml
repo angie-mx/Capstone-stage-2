@@ -47,6 +47,23 @@
     <string name="genre">Genre</string>
     <string name="search">Search</string>
 
+    <string name="service_genre_rock">rock</string>
+    <string name="service_genre_pop">pop</string>
+    <string name="service_genre_folk">folk</string>
+    <string name="service_genre_electro">electro</string>
+    <string name="service_genre_r_b">randb</string>
+    <string name="service_genre_hip_hop">hip Hop</string>
+    <string name="service_genre_vocal_pop">vocal pop</string>
+    <string name="service_genre_soundtrack">cinema</string>
+    <string name="service_genre_classical">classical</string>
+    <string name="service_genre_latin">latin</string>
+    <string name="service_genre_world">world</string>
+    <string name="service_genre_reggae">reggae</string>
+    <string name="service_genre_blues">blues</string>
+    <string name="service_genre_jazz">jazz</string>
+    <string name="service_genre_country">country</string>
+    <string name="service_genre_metal">metal</string>
+
     <!-- SETTINGS -->
     <string name="settings_popularity">Popularity (range between 0=discover and 100=hit):</string>
     <string name="settings_listener_country">Country</string>
