@@ -171,7 +171,8 @@
                 android:id="@+id/genre_rock_button"
                 android:layout_below="@id/genre"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/rock" />
+                app:selected_color="@color/rock"
+                app:service_genre="@string/service_genre_rock"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_pop"
@@ -181,7 +182,8 @@
                 android:layout_toRightOf="@+id/genre_rock_button"
                 android:layout_below="@id/genre"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/pop" />
+                app:selected_color="@color/pop"
+                app:service_genre="@string/service_genre_pop"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_folk"
@@ -191,7 +193,8 @@
                 android:layout_toRightOf="@+id/genre_pop_button"
                 android:layout_below="@id/genre"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/folk" />
+                app:selected_color="@color/folk"
+                app:service_genre="@string/service_genre_folk"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_electro"
@@ -200,7 +203,8 @@
                 android:id="@+id/genre_electro_button"
                 android:layout_below="@+id/genre_rock_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/electro" />
+                app:selected_color="@color/electro"
+                app:service_genre="@string/service_genre_electro"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_r_b"
@@ -210,7 +214,8 @@
                 android:layout_alignLeft="@+id/genre_pop_button"
                 android:id="@+id/genre_r_b_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/r_b" />
+                app:selected_color="@color/r_b"
+                app:service_genre="@string/genre_r_b"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_hip_hop"
@@ -220,7 +225,8 @@
                 android:layout_alignLeft="@+id/genre_folk_button"
                 android:id="@+id/genre_hip_hop_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/hip_hop" />
+                app:selected_color="@color/hip_hop"
+                app:service_genre="@string/service_genre_hip_hop"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_vocal_pop"
@@ -229,7 +235,8 @@
                 android:layout_below="@+id/genre_electro_button"
                 android:id="@+id/genre_vocal_pop_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/pop" />
+                app:selected_color="@color/pop"
+                app:service_genre="@string/service_genre_vocal_pop"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_soundtrack"
@@ -239,7 +246,8 @@
                 android:layout_alignLeft="@+id/genre_r_b_button"
                 android:id="@+id/genre_soundtrack_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/soundtrack" />
+                app:selected_color="@color/soundtrack"
+                app:service_genre="@string/service_genre_soundtrack"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_classical"
@@ -249,7 +257,8 @@
                 android:layout_alignLeft="@+id/genre_hip_hop_button"
                 android:id="@+id/genre_classical_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/classical" />
+                app:selected_color="@color/classical"
+                app:service_genre="@string/service_genre_classical"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_latin"
@@ -258,7 +267,8 @@
                 android:layout_below="@+id/genre_vocal_pop_button"
                 android:id="@+id/genre_latin_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/latin" />
+                app:selected_color="@color/latin"
+                app:service_genre="@string/service_genre_latin"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_world"
@@ -268,7 +278,8 @@
                 android:layout_toLeftOf="@+id/genre_classical_button"
                 android:id="@+id/genre_world_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/world" />
+                app:selected_color="@color/world"
+                app:service_genre="@string/service_genre_world"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_reggae"
@@ -278,7 +289,8 @@
                 android:layout_toRightOf="@+id/genre_world_button"
                 android:id="@+id/genre_reggae_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/reggae" />
+                app:selected_color="@color/reggae"
+                app:service_genre="@string/service_genre_reggae"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_blues"
@@ -287,7 +299,8 @@
                 android:layout_below="@+id/genre_latin_button"
                 android:id="@+id/genre_blues_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/blues" />
+                app:selected_color="@color/blues"
+                app:service_genre="@string/service_genre_blues"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_jazz"
@@ -297,7 +310,8 @@
                 android:layout_alignLeft="@+id/genre_soundtrack_button"
                 android:id="@+id/genre_jazz_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/jazz" />
+                app:selected_color="@color/jazz"
+                app:service_genre="@string/service_genre_jazz"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_country"
@@ -307,7 +321,8 @@
                 android:layout_alignLeft="@+id/genre_reggae_button"
                 android:id="@+id/genre_country_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/country" />
+                app:selected_color="@color/country"
+                app:service_genre="@string/service_genre_country"/>
 
             <mx.saudade.discovermusicapp.ui.StateButton
                 android:text="@string/genre_metal"
@@ -316,7 +331,8 @@
                 android:layout_below="@+id/genre_blues_button"
                 android:id="@+id/genre_metal_button"
                 app:layout_widthPercent="33%"
-                app:selected_color="@color/metal" />
+                app:selected_color="@color/metal"
+                app:service_genre="@string/service_genre_metal"/>
 
             <Button
                 android:text="@string/genre_all"

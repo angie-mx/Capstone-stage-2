@@ -1,15 +1,25 @@
 package mx.saudade.discovermusicapp.fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SeekBar;
+
+import org.apache.commons.lang3.StringUtils;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.controllers.MoodController;
+import mx.saudade.discovermusicapp.services.MoodPlaylistService;
 
 /**
  * Created by angie on 7/1/16.
@@ -40,12 +50,62 @@ public class DiscoverFragment extends Fragment {
         });
     }
 
-    private void searchMoods() {
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(
+                mMessageReceiver);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+                mMessageReceiver, new IntentFilter(MoodPlaylistService.WEB_SERVICE_EVENT));
+    }
+
+    private void searchMoods() {
+        Intent intent = createSearchIntent();
+        getActivity().startService(intent);
+    }
+
+    private Intent createSearchIntent() {
+        boolean years[] = moodController.getYears();
+
+        Intent i = new Intent(getActivity(), MoodPlaylistService.class);
+        i.putExtra(MoodPlaylistService.TRACK_VALENCE_EXTRA
+                , String.valueOf(getSeekBar(R.id.valence_seekbar).getProgress()));
+        i.putExtra(MoodPlaylistService.TRACK_AROUSAL_EXTRA
+                , String.valueOf(getSeekBar(R.id.arousal_seekbar).getProgress()));
+        i.putExtra(MoodPlaylistService.YEAR_MAX_EXTRA, StringUtils.EMPTY);
+        i.putExtra(MoodPlaylistService.YEAR_MIN_EXTRA, StringUtils.EMPTY);
+        i.putExtra(MoodPlaylistService.BEFORE_1950_EXTRA, years[0]);
+        i.putExtra(MoodPlaylistService.DATE_50_EXTRA, years[1]);
+        i.putExtra(MoodPlaylistService.DATE_60_EXTRA, years[2]);
+        i.putExtra(MoodPlaylistService.DATE_70_EXTRA, years[3]);
+        i.putExtra(MoodPlaylistService.DATE_80_EXTRA, years[4]);
+        i.putExtra(MoodPlaylistService.DATE_90_EXTRA, years[5]);
+        i.putExtra(MoodPlaylistService.DATE_00_EXTRA, years[6]);
+        i.putExtra(MoodPlaylistService.DATE_10_EXTRA, years[7]);
+        i.putExtra(MoodPlaylistService.GENRE_NO_EXTRA, moodController.getMoods());
+
+        return i;
+    }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Parcelable parcelable = intent.getParcelableExtra(MoodPlaylistService.WEB_SERVICE_EXTRA);
+            //TODO send this result to the next screen
+        }
+    };
 
     private Button getButton(int id) {
         return (Button) getView().findViewById(id);
+    }
+
+    private SeekBar getSeekBar(int id) {
+        return (SeekBar) getView().findViewById(id);
     }
 
 }

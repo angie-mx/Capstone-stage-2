@@ -30,6 +30,25 @@ public class MoodController {
         initiateButtons();
     }
 
+    public boolean[] getYears() {
+        boolean[] years = new boolean[YEARS_BUTTON_SIZE];
+        for (int i = 0; i < YEARS_BUTTON_SIZE; i++)
+            years[i] = yearsButtons[i].isStateSelected();
+
+        return years;
+    }
+
+    public String getMoods() {
+        StringBuilder moods = new StringBuilder();
+        for (int i = 0; i < GENRES_BUTTON_SIZE; i++) {
+            if (genresButtons[i].isStateSelected()) {
+                moods.append(genresButtons[i].getServiceGenre());
+                moods.append(", ");
+            }
+        }
+        return moods.toString();
+    }
+
     private void initiateButtons() {
         yearsButtons[0] = getSelectedButton(R.id.year_before_50);
         yearsButtons[1] = getSelectedButton(R.id.year_50);
