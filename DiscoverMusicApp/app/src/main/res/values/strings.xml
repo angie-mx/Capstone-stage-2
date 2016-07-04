@@ -107,4 +107,7 @@
     <string name="location_error">Location error</string>
     <string name="check_location">Verify your location service is enabled</string>
 
+    <!-- WIDGET -->
+    <string name="favs">favs</string>
+
 </resources>
