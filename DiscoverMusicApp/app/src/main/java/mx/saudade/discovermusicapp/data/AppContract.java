@@ -35,17 +35,22 @@ public class AppContract {
 
         public static final String COLUMN_NAME = "name";
 
+        public static final String COLUMN_MBID = "mbid";
+
         public static final String COLUMN_IMG_URL = "img_url";
 
         public static final int INDEX_COLUMN_ID = 0;
 
         public static final int INDEX_COLUMN_NAME = 1;
 
-        public static final int INDEX_COLUMN_IMG_URL = 2;
+        public static final int INDEX_COLUMN_MBID = 2;
+
+        public static final int INDEX_COLUMN_IMG_URL = 3;
 
         public static final String[] COMPLETE_PROJECTION = {
                 ArtistEntry._ID,
                 ArtistEntry.COLUMN_NAME,
+                ArtistEntry.COLUMN_MBID,
                 ArtistEntry.COLUMN_IMG_URL
         };
 

@@ -24,8 +24,9 @@ public class AppDataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_ARTIST_TABLE =
                 "CREATE TABLE " + ArtistEntry.TABLE_NAME + " (" +
-                        ArtistEntry._ID + " INTEGER PRIMARY KEY, " +
+                        ArtistEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         ArtistEntry.COLUMN_NAME + " VARCHAR(100), " +
+                        ArtistEntry.COLUMN_MBID + " VARCHAR(100), " +
                         ArtistEntry.COLUMN_IMG_URL + " VARCHAR(255) " +
                         ");";
 

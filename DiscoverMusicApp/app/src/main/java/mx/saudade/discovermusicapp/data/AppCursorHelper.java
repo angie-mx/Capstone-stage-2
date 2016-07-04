@@ -18,7 +18,6 @@ import mx.saudade.discovermusicapp.responses.Track;
 /**
  * Created by angie on 6/26/16.
  */
-
 public class AppCursorHelper {
 
     private static final String TAG = AppCursorHelper.class.getSimpleName();
@@ -47,6 +46,7 @@ public class AppCursorHelper {
             artist = new Artist();
             artist.setId(cursor.getInt(ArtistEntry.INDEX_COLUMN_ID));
             artist.setName(cursor.getString(ArtistEntry.INDEX_COLUMN_NAME));
+            artist.setMbid(cursor.getString(ArtistEntry.INDEX_COLUMN_MBID));
             artist.setImgUrl(cursor.getString(ArtistEntry.INDEX_COLUMN_IMG_URL));
         }
         cursor.close();
@@ -118,18 +118,18 @@ public class AppCursorHelper {
     }
 
     public long insertArtist(Artist artist) {
-        if (artist == null || artist.getId() <= 0) {
+        if (artist == null) {
             return 0;
         }
 
         Artist a = getArtist(artist.getId());
         if (a != null) {
-            return 0;
+            return artist.getId();
         }
 
         ContentValues values = new ContentValues();
-        values.put(ArtistEntry._ID, artist.getId());
         values.put(ArtistEntry.COLUMN_NAME, artist.getName());
+        values.put(ArtistEntry.COLUMN_MBID, artist.getMbid());
         values.put(ArtistEntry.COLUMN_IMG_URL, artist.getImgUrl());
 
         Uri insertedUri = context.getContentResolver().insert(ArtistEntry.CONTENT_URI, values);
@@ -149,12 +149,12 @@ public class AppCursorHelper {
             return 0;
         }
 
-        insertArtist(track.getArtist());
+        long artistId = insertArtist(track.getArtist());
 
         ContentValues values = new ContentValues();
         values.put(TrackEntry._ID, track.getId());
         values.put(TrackEntry.COLUMN_TITLE, track.getTitle());
-        values.put(TrackEntry.COLUMN_ARTIST_ID, track.getArtist().getId());
+        values.put(TrackEntry.COLUMN_ARTIST_ID, artistId);
         values.put(TrackEntry.COLUMN_RELEASE_DATE, track.getReleaseDate());
         values.put(TrackEntry.COLUMN_GENRE, track.getGenre());
         values.put(TrackEntry.COLUMN_AROUSAL, track.getArousal());
