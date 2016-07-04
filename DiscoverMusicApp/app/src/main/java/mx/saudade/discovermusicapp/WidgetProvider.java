@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import mx.saudade.discovermusicapp.activities.MainActivity;
 import mx.saudade.discovermusicapp.data.AppCursorHelper;
 
 /**
@@ -36,7 +35,7 @@ public class WidgetProvider extends AppWidgetProvider {
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
-    
+
     private Intent createUpdateIntent(Context context, int[] appWidgetIds ) {
         Intent intent = new Intent(context, WidgetProvider.class);
         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
