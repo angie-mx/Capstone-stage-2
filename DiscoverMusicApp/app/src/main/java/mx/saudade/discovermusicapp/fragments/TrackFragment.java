@@ -26,6 +26,7 @@ import mx.saudade.discovermusicapp.services.ArtistPlaylistService;
 import mx.saudade.discovermusicapp.services.LyricsService;
 import mx.saudade.discovermusicapp.services.TrackPlaylistService;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
+import mx.saudade.discovermusicapp.utils.ConnectivityUtils;
 
 /**
  * Created by angie on 7/3/16.
@@ -83,6 +84,9 @@ public class TrackFragment extends Fragment {
         getButton(R.id.track_by_track).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!ConnectivityUtils.checkConnectivity(getActivity())) {
+                    return;
+                }
                 TrackServiceCallController.searchByTrack(getActivity(), track);
                 ((AnalyticsApplication) getActivity().getApplication()).trackEvent(getString(R.string.track),
                         getString(R.string.playlist_by_track), track.getId() + " " + track.getTitle());
@@ -92,6 +96,9 @@ public class TrackFragment extends Fragment {
         getButton(R.id.track_by_artist).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!ConnectivityUtils.checkConnectivity(getActivity())) {
+                    return;
+                }
                 TrackServiceCallController.searchByArtist(getActivity(), track);
                 ((AnalyticsApplication) getActivity().getApplication()).trackEvent(
                         getString(R.string.track), getString(R.string.playlist_by_track)

@@ -23,6 +23,7 @@ import mx.saudade.discovermusicapp.activities.PlaylistActivity;
 import mx.saudade.discovermusicapp.controllers.MoodController;
 import mx.saudade.discovermusicapp.services.MoodPlaylistService;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
+import mx.saudade.discovermusicapp.utils.ConnectivityUtils;
 
 /**
  * Created by angie on 7/1/16.
@@ -68,6 +69,9 @@ public class DiscoverFragment extends Fragment {
     }
 
     private void searchMoods() {
+        if (!ConnectivityUtils.checkConnectivity(getActivity())) {
+            return;
+        }
         Intent intent = createSearchIntent();
         getActivity().startService(intent);
     }

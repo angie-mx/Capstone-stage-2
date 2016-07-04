@@ -19,6 +19,7 @@ import mx.saudade.discovermusicapp.activities.TrackActivity;
 import mx.saudade.discovermusicapp.responses.Track;
 import mx.saudade.discovermusicapp.utils.AdapterUtils;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
+import mx.saudade.discovermusicapp.utils.ConnectivityUtils;
 
 /**
  * Created by angie on 6/28/16.
@@ -48,6 +49,9 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!ConnectivityUtils.checkConnectivity(activity)) {
+                   return;
+                }
                 Track track = tracks.get(holder.getAdapterPosition());
                 selectedIndex = holder.getAdapterPosition();
                 notifyDataSetChanged();
@@ -59,6 +63,9 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!ConnectivityUtils.checkConnectivity(activity)) {
+                    return;
+                }
                 Track track = tracks.get(holder.getAdapterPosition());
                 NavigationUtils.startYoutube((AppCompatActivity) activity, track.getTitle()
                         , track.getArtist().getName());
