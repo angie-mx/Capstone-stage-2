@@ -120,6 +120,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 savePreferences();
+                getActivity().finish();
             }
         });
     }
