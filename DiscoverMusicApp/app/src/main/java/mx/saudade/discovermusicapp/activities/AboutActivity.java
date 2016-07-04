@@ -11,7 +11,6 @@ import mx.saudade.discovermusicapp.utils.NavigationUtils;
 /**
  * Created by angie on 7/3/16.
  */
-
 public class AboutActivity extends AppCompatActivity {
 
     @Override
