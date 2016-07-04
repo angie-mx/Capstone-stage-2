@@ -9,14 +9,16 @@ import org.simpleframework.xml.Element;
 /**
  * Created by angie on 6/19/16.
  */
-
 @org.simpleframework.xml.Root(name = "GetLyricResult")
 public class LyricsResult implements Parcelable {
+
+    @Element(name = "TrackChecksum", required = false)
+    private String trackChecksum;
 
     @Element(name = "TrackId")
     private int trackId;
 
-    @Element(name = "LyricChecksum")
+    @Element(name = "LyricChecksum", required = false)
     private String checksum;
 
     @Element(name = "LyricId")
@@ -31,7 +33,7 @@ public class LyricsResult implements Parcelable {
     @Element(name = "LyricUrl")
     private String url;
 
-    @Element(name = "LyricCovertArtUrl")
+    @Element(name = "LyricCovertArtUrl", required = false)
     private String covertArtUrl;
 
     @Element(name = "LyricRank")
@@ -40,12 +42,13 @@ public class LyricsResult implements Parcelable {
     @Element(name = "LyricCorrectUrl")
     private String correctUrl;
 
-    @Element(name = "Lyric")
+    @Element(name = "Lyric", required = false)
     private String lyric;
 
     public LyricsResult() { }
 
     protected LyricsResult(Parcel in) {
+        trackChecksum = in.readString();
         trackId = in.readInt();
         checksum = in.readString();
         id = in.readInt();
@@ -70,9 +73,14 @@ public class LyricsResult implements Parcelable {
         }
     };
 
+    public String getLyric() {
+        return lyric;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .append("trackChecksum", trackChecksum)
                 .append("trackId", trackId)
                 .append("checksum", checksum)
                 .append("id", id)
@@ -93,6 +101,7 @@ public class LyricsResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(trackChecksum);
         dest.writeInt(trackId);
         dest.writeString(checksum);
         dest.writeInt(id);
