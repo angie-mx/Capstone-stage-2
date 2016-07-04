@@ -101,4 +101,7 @@
     <string name="connectivity_error">Connectivity error</string>
     <string name="check_connectivity">Verify you are connected to the network and try it again</string>
 
+    <string name="location_error">Location error</string>
+    <string name="check_location">Verify your location service is enabled</string>
+
 </resources>

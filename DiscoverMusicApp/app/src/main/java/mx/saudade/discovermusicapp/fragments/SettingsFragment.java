@@ -15,6 +15,7 @@ import com.appyvet.rangebar.RangeBar;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.handlers.LocationHandler;
 import mx.saudade.discovermusicapp.models.Country;
+import mx.saudade.discovermusicapp.utils.ConnectivityUtils;
 import mx.saudade.discovermusicapp.utils.PreferencesUtils;
 
 import static mx.saudade.discovermusicapp.utils.SettingsUtils.getCountries;
@@ -31,6 +32,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container
             , @Nullable Bundle savedInstanceState) {
+        ConnectivityUtils.checkLocationEnabled(getActivity());
         return inflater.inflate(R.layout.settings_fragment, null);
     }
 
