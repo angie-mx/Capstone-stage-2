@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="no_selected_button">@android:color/white</color>
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
 
     <color name="rock">#3d61ad</color>
     <color name="pop">#75c2d2</color>

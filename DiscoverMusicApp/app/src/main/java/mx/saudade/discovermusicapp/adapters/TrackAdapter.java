@@ -1,6 +1,7 @@
 package mx.saudade.discovermusicapp.adapters;
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -28,6 +29,10 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Track> tracks;
 
+    public static int INVALID_INDEX = -1;
+
+    protected int selectedIndex = INVALID_INDEX;
+
     public TrackAdapter(Activity activity, List<Track> tracks) {
         this.activity = activity;
         this.tracks = tracks;
@@ -44,6 +49,8 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             public void onClick(View view) {
                 Track track = tracks.get(holder.getAdapterPosition());
+                selectedIndex = holder.getAdapterPosition();
+                notifyDataSetChanged();
                 NavigationUtils.loadActivity((AppCompatActivity) activity, TrackActivity.class
                         , TrackActivity.TRACK_EXTRA_KEY, track);
             }
@@ -75,6 +82,18 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
             holder.artist.setText(track.getArtist().getName());
         } else {
             holder.artist.setText(StringUtils.EMPTY);
+        }
+        updateSelectedItem(holder, position);
+
+    }
+
+    private void updateSelectedItem(ViewHolder holder, int position) {
+        if (position == selectedIndex) {
+            holder.title.setTextColor(ContextCompat.getColor(activity, R.color.white));
+            holder.artist.setTextColor(ContextCompat.getColor(activity, R.color.white));
+        } else {
+            holder.title.setTextColor(ContextCompat.getColor(activity, R.color.black));
+            holder.artist.setTextColor(ContextCompat.getColor(activity, R.color.black));
         }
     }
 

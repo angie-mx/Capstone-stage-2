@@ -33,7 +33,7 @@ public class StateButton extends Button implements View.OnClickListener {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        noSelectedColor = ContextCompat.getColor(context, R.color.no_selected_button);
+        noSelectedColor = ContextCompat.getColor(context, R.color.white);
         setOnClickListener(this);
         getAttributeColor(context, attrs);
         getAttributeServiceGenre(context, attrs);
