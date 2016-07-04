@@ -86,5 +86,9 @@
     <!-- TRACK -->
     <string name="playlist_by_artist">Playlist by artist</string>
     <string name="playlist_by_track">Playlist by track</string>
+    <string name="add_favorites">Add to favorites</string>
+    <string name="share">Share track</string>
+    <string name="track_saved">Track saved as favorite</string>
+    <string name="track_removed">Track removed from favorites</string>
 
 </resources>

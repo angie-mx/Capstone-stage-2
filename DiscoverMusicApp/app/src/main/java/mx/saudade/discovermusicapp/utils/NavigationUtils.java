@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.util.Log;
 
 import mx.saudade.discovermusicapp.R;
 
@@ -12,6 +14,8 @@ import mx.saudade.discovermusicapp.R;
  * Created by angie on 7/3/16.
  */
 public final class NavigationUtils {
+
+    private static final String TAG = NavigationUtils.class.getSimpleName();
 
     private static final String YOUTUBE_SEARCH_BASE_URL = "https://www.youtube.com/results";
 
@@ -44,6 +48,21 @@ public final class NavigationUtils {
                 .build();
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         activity.startActivity(intent);
+    }
+
+    public static void share(ShareActionProvider provider, String message) {
+        if (message == null || provider == null) {
+            return;
+        } else {
+            Log.e(TAG, "Error" + provider.toString() + " " + message);
+        }
+
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_TEXT, message);
+
+        provider.setShareIntent(i);
     }
 
 }

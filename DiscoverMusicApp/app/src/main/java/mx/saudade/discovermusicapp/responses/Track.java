@@ -176,6 +176,11 @@ public class Track  implements Parcelable {
         this.lyrics = lyrics;
     }
 
+    public String getShareMessage() {
+        return "Take a look to this amazing track: " + this.title + " by " + artist.getName()
+                + ". Discover Music";
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)

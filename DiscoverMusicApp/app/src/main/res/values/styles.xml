@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="listPopupWindowStyle">@style/PopupListStyle</item>
+    </style>
+    <style name="PopupListStyle" parent="@style/Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@color/colorPrimary</item>
     </style>
     <style name="subtitle_text">
         <item name="android:textSize">18sp</item>
