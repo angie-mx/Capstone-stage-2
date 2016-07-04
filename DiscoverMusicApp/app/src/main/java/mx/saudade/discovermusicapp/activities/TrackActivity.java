@@ -1,10 +1,13 @@
 package mx.saudade.discovermusicapp.activities;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.TrackFragment;
@@ -22,11 +25,34 @@ public class TrackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
         Fragment fragment = createTrackFragment(getExtra());
         NavigationUtils.loadFragment(this, fragment);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.track_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_add_favorites) {
+
+            return true;
+        } else if (id == R.id.action_share) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private Parcelable getExtra() {
         if (this.getIntent() == null) {
@@ -42,4 +68,5 @@ public class TrackActivity extends AppCompatActivity {
         trackFragment.setArguments(bundle);
         return trackFragment;
     }
+
 }
