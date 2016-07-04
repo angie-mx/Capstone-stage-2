@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,22 @@ public class PlaylistFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PlaylistUtils.createRecyclerView(getActivity(), getView(), getTracks());
+        updateContent(getTracks());
+    }
+
+    private void updateContent(List<Track> tracks) {
+        if (tracks == null || tracks.size() == 0) {
+            getTextView().setText(R.string.no_results);
+            getTextView().setVisibility(TextView.VISIBLE);
+        } else {
+            PlaylistUtils.createRecyclerView(getActivity(), getView().findViewById(
+                    R.id.playlist_container), tracks);
+            getTextView().setVisibility(TextView.GONE);
+        }
+    }
+
+    private TextView getTextView() {
+        return (TextView) getView().findViewById(R.id.playlist_no_results);
     }
 
     private List<Track> getTracks() {

@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:id="@+id/playlist_container">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/playlist_no_results"
+        android:gravity="center_horizontal"
+        style="@style/subtitle_text"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/playlist_recyclerview"
         android:layout_width="match_parent"

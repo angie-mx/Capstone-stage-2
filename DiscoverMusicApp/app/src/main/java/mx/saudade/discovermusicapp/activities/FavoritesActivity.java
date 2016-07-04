@@ -9,6 +9,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,8 +73,21 @@ public class FavoritesActivity extends AppCompatActivity
         }
 
         Log.d(TAG, "tracks " + tracks);
+        updateContent(tracks);
+    }
 
-        PlaylistUtils.createRecyclerView(this, findViewById(R.id.playlist_container), tracks);
+    private void updateContent(List<Track> tracks) {
+        if (tracks.size() == 0) {
+            getTextView().setText(R.string.no_favorites);
+            getTextView().setVisibility(TextView.VISIBLE);
+        } else {
+            PlaylistUtils.createRecyclerView(this, findViewById(R.id.playlist_container), tracks);
+            getTextView().setVisibility(TextView.GONE);
+        }
+    }
+
+    private TextView getTextView() {
+        return (TextView) findViewById(R.id.playlist_no_results);
     }
 
     @Override

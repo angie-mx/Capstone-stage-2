@@ -95,6 +95,9 @@
     <string name="share">Share track</string>
     <string name="track_saved">Track saved as favorite</string>
     <string name="track_removed">Track removed from favorites</string>
+    <string name="no_lyrics">No lyric available</string>
+    <string name="no_favorites">No favorites at the moment</string>
+    <string name="no_results">No results. Change your personal settings and/or search\'s parameters and try it again</string>
 
     <!-- DIALOGS -->
     <string name="ok">Ok</string>

@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
+
 import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.activities.PlaylistActivity;
@@ -118,7 +120,11 @@ public class TrackFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             LyricsResult parcelable = intent.getParcelableExtra(LyricsService.WEB_SERVICE_EXTRA);
-            getTextView(R.id.track_lyrics).setText(parcelable.getLyric());
+            if (parcelable == null || StringUtils.isEmpty(parcelable.getLyric())) {
+                getTextView(R.id.track_lyrics).setText(R.string.no_lyrics);
+            } else {
+                getTextView(R.id.track_lyrics).setText(parcelable.getLyric());
+            }
         }
     };
 
