@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -17,8 +16,8 @@ import java.util.List;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.activities.TrackActivity;
 import mx.saudade.discovermusicapp.responses.Track;
-import mx.saudade.discovermusicapp.utils.NavigationUtils;
 import mx.saudade.discovermusicapp.utils.AdapterUtils;
+import mx.saudade.discovermusicapp.utils.NavigationUtils;
 
 /**
  * Created by angie on 6/28/16.
