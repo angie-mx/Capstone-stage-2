@@ -22,7 +22,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/arousal"
                 android:id="@+id/arousal_seekbar"
+                android:layout_toEndOf="@+id/energic"
                 android:layout_toRightOf="@+id/energic"
+                android:layout_toStartOf="@+id/calm"
                 android:layout_toLeftOf="@+id/calm"
                 android:max="1000000"/>
 
@@ -39,7 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/valence"
                 android:id="@+id/valence_seekbar"
+                android:layout_toStartOf="@+id/positive"
                 android:layout_toLeftOf="@+id/positive"
+                android:layout_toEndOf="@id/dark"
                 android:layout_toRightOf="@id/dark"
                 android:max="1000000"/>
 
@@ -49,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/arousal"
                 android:id="@+id/energic"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -56,8 +61,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/arousal"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:id="@+id/calm"
+                android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"/>
 
             <TextView
@@ -66,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/valence"
                 android:id="@+id/dark"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -73,8 +81,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/valence"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:id="@+id/positive"
+                android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"/>
 
             <!-- decades -->
@@ -98,6 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/year_50"
+                android:layout_toEndOf="@id/year_before_50"
                 android:layout_toRightOf="@id/year_before_50"
                 android:layout_below="@id/decade"
                 app:layout_widthPercent="13%"
@@ -109,6 +120,7 @@
                 android:id="@+id/year_60"
                 app:layout_widthPercent="12%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_50"
                 android:layout_toRightOf="@id/year_50"
                 android:layout_below="@id/decade" />
             <mx.saudade.discovermusicapp.ui.StateButton
@@ -118,6 +130,7 @@
                 android:id="@+id/year_70"
                 app:layout_widthPercent="13%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_60"
                 android:layout_toRightOf="@id/year_60"
                 android:layout_below="@id/decade" />
             <mx.saudade.discovermusicapp.ui.StateButton
@@ -127,6 +140,7 @@
                 android:id="@+id/year_80"
                 app:layout_widthPercent="12%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_70"
                 android:layout_toRightOf="@id/year_70"
                 android:layout_below="@id/decade" />
             <mx.saudade.discovermusicapp.ui.StateButton
@@ -136,6 +150,7 @@
                 android:id="@+id/year_90"
                 app:layout_widthPercent="13%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_80"
                 android:layout_toRightOf="@id/year_80"
                 android:layout_below="@id/decade" />
             <mx.saudade.discovermusicapp.ui.StateButton
@@ -145,6 +160,7 @@
                 android:id="@+id/year_00"
                 app:layout_widthPercent="12%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_90"
                 android:layout_toRightOf="@id/year_90"
                 android:layout_below="@id/decade" />
             <mx.saudade.discovermusicapp.ui.StateButton
@@ -154,6 +170,7 @@
                 android:id="@+id/year_10"
                 app:layout_widthPercent="13%"
                 app:selected_color="@color/years"
+                android:layout_toEndOf="@id/year_00"
                 android:layout_toRightOf="@id/year_00"
                 android:layout_below="@id/decade" />
             <!-- genres -->
@@ -179,6 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/genre_pop_button"
+                android:layout_toEndOf="@+id/genre_rock_button"
                 android:layout_toRightOf="@+id/genre_rock_button"
                 android:layout_below="@id/genre"
                 app:layout_widthPercent="33%"
@@ -190,6 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/genre_folk_button"
+                android:layout_toEndOf="@+id/genre_pop_button"
                 android:layout_toRightOf="@+id/genre_pop_button"
                 android:layout_below="@id/genre"
                 app:layout_widthPercent="33%"
@@ -211,6 +230,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/genre_electro_button"
+                android:layout_alignStart="@+id/genre_pop_button"
                 android:layout_alignLeft="@+id/genre_pop_button"
                 android:id="@+id/genre_r_b_button"
                 app:layout_widthPercent="33%"
@@ -222,6 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/genre_r_b_button"
+                android:layout_alignStart="@+id/genre_folk_button"
                 android:layout_alignLeft="@+id/genre_folk_button"
                 android:id="@+id/genre_hip_hop_button"
                 app:layout_widthPercent="33%"
@@ -243,6 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_r_b_button"
+                android:layout_alignStart="@+id/genre_r_b_button"
                 android:layout_alignLeft="@+id/genre_r_b_button"
                 android:id="@+id/genre_soundtrack_button"
                 app:layout_widthPercent="33%"
@@ -254,6 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_hip_hop_button"
+                android:layout_alignStart="@+id/genre_hip_hop_button"
                 android:layout_alignLeft="@+id/genre_hip_hop_button"
                 android:id="@+id/genre_classical_button"
                 app:layout_widthPercent="33%"
@@ -275,6 +298,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_soundtrack_button"
+                android:layout_toStartOf="@+id/genre_classical_button"
                 android:layout_toLeftOf="@+id/genre_classical_button"
                 android:id="@+id/genre_world_button"
                 app:layout_widthPercent="33%"
@@ -286,6 +310,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_classical_button"
+                android:layout_toEndOf="@+id/genre_world_button"
                 android:layout_toRightOf="@+id/genre_world_button"
                 android:id="@+id/genre_reggae_button"
                 app:layout_widthPercent="33%"
@@ -307,6 +332,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_world_button"
+                android:layout_alignStart="@+id/genre_soundtrack_button"
                 android:layout_alignLeft="@+id/genre_soundtrack_button"
                 android:id="@+id/genre_jazz_button"
                 app:layout_widthPercent="33%"
@@ -318,6 +344,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_reggae_button"
+                android:layout_alignStart="@+id/genre_reggae_button"
                 android:layout_alignLeft="@+id/genre_reggae_button"
                 android:id="@+id/genre_country_button"
                 app:layout_widthPercent="33%"
@@ -339,6 +366,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_jazz_button"
+                android:layout_toStartOf="@+id/genre_country_button"
                 android:layout_toLeftOf="@+id/genre_country_button"
                 android:id="@+id/genre_all_button"
                 app:layout_widthPercent="33%"
@@ -349,6 +377,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genre_country_button"
+                android:layout_toEndOf="@+id/genre_all_button"
                 android:layout_toRightOf="@+id/genre_all_button"
                 android:id="@+id/genre_none_button"
                 app:layout_widthPercent="33%"

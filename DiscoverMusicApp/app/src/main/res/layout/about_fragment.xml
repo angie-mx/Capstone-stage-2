@@ -19,7 +19,7 @@
             android:text="@string/version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="right|end"
             style="@style/footer_text"/>
 
         <TextView
@@ -54,7 +54,7 @@
             android:text="@string/year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="right|end"
             style="@style/footer_text"/>
 
         <TextView

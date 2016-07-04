@@ -23,7 +23,9 @@
             custom:tickInterval="1"
             custom:tickEnd="100"
             custom:tickColor="@android:color/transparent"
+            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"/>
 
         <TextView
@@ -43,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/settings_current_location"
-            android:layout_gravity="right"
+            android:layout_gravity="right|end"
             android:background="@color/colorPrimary"
             android:textColor="@color/white"
             android:padding="5dp"/>
