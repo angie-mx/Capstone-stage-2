@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.DiscoverFragment;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         NavigationUtils.loadFragment(this, new DiscoverFragment());
+        ((AnalyticsApplication) getApplication()).trackScreen(getString(R.string.discover));
     }
 
     @Override

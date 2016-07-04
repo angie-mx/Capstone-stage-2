@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.activities.PlaylistActivity;
 import mx.saudade.discovermusicapp.controllers.TrackServiceCallController;
@@ -83,6 +84,8 @@ public class TrackFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TrackServiceCallController.searchByTrack(getActivity(), track);
+                ((AnalyticsApplication) getActivity().getApplication()).trackEvent(getString(R.string.track),
+                        getString(R.string.playlist_by_track), track.getId() + " " + track.getTitle());
             }
         });
 
@@ -90,6 +93,9 @@ public class TrackFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TrackServiceCallController.searchByArtist(getActivity(), track);
+                ((AnalyticsApplication) getActivity().getApplication()).trackEvent(
+                        getString(R.string.track), getString(R.string.playlist_by_track)
+                        , track.getArtist().getMbid() + " " + track.getArtist().getName());
             }
         });
     }

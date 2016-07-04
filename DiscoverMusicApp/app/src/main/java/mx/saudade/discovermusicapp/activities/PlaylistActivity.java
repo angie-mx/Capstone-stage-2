@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.fragments.PlaylistFragment;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
@@ -28,6 +29,7 @@ public class PlaylistActivity extends AppCompatActivity {
 
         Fragment fragment = createPlaylistFragment(getExtra());
         NavigationUtils.loadFragment(this, fragment);
+        ((AnalyticsApplication) getApplication()).trackScreen(getString(R.string.playlist));
     }
 
     private Parcelable getExtra() {

@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.data.AppCursorHelper;
 import mx.saudade.discovermusicapp.fragments.TrackFragment;
@@ -38,6 +39,7 @@ public class TrackActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         init();
+        ((AnalyticsApplication) getApplication()).trackScreen(getString(R.string.track));
     }
 
     private void init() {
@@ -58,11 +60,11 @@ public class TrackActivity extends AppCompatActivity {
     private void setShareAction(Menu menu) {
         final ShareActionProvider provider = (ShareActionProvider) MenuItemCompat
                 .getActionProvider(menu.findItem(R.id.action_share));
-        NavigationUtils.share(provider, track.getShareMessage());
+        NavigationUtils.share(getApplication(), provider, track.getShareMessage());
         provider.setOnShareTargetSelectedListener(new ShareActionProvider.OnShareTargetSelectedListener() {
             @Override
             public boolean onShareTargetSelected(ShareActionProvider shareActionProvider, Intent intent) {
-                NavigationUtils.share(shareActionProvider, track.getShareMessage());
+                NavigationUtils.share(getApplication(), shareActionProvider, track.getShareMessage());
                 return false;
             }
         });
@@ -93,10 +95,14 @@ public class TrackActivity extends AppCompatActivity {
             cursorHelper.insertTrack(track);
             item.setIcon(R.drawable.ic_favorite_on);
             message = R.string.track_saved;
+            ((AnalyticsApplication) getApplication()).trackEvent(getString(R.string.track),
+                    getString(R.string.add_favorites), track.getId() + " " + track.getTitle());
         } else {
             cursorHelper.deleteTrack(track.getId());
             item.setIcon(R.drawable.ic_favorite_off);
             message = R.string.track_removed;
+            ((AnalyticsApplication) getApplication()).trackEvent(getString(R.string.track),
+                    getString(R.string.remove_favorites), track.getId() + " " + track.getTitle());
         }
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

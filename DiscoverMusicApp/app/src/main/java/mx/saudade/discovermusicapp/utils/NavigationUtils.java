@@ -1,5 +1,6 @@
 package mx.saudade.discovermusicapp.utils;
 
+import android.app.Application;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Parcelable;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 
 /**
@@ -50,7 +52,7 @@ public final class NavigationUtils {
         activity.startActivity(intent);
     }
 
-    public static void share(ShareActionProvider provider, String message) {
+    public static void share(Application application, ShareActionProvider provider, String message) {
         if (message == null || provider == null) {
             return;
         } else {
@@ -63,6 +65,10 @@ public final class NavigationUtils {
         i.putExtra(Intent.EXTRA_TEXT, message);
 
         provider.setShareIntent(i);
+        ((AnalyticsApplication) application).trackEvent(
+                application.getString(R.string.track),
+                application.getString(R.string.share),
+                message);
     }
 
 }

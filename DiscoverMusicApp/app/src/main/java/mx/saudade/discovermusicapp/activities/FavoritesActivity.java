@@ -13,6 +13,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.saudade.discovermusicapp.AnalyticsApplication;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.data.AppContract;
 import mx.saudade.discovermusicapp.data.AppCursorHelper;
@@ -35,6 +36,7 @@ public class FavoritesActivity extends AppCompatActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.playlist_fragment);
         getSupportLoaderManager().initLoader(URL_LOADER, null, this);
+        ((AnalyticsApplication) getApplication()).trackScreen(getString(R.string.favorites));
     }
 
     @Override

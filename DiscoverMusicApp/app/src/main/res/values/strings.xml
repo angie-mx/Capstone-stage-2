@@ -8,6 +8,7 @@
     <string name="location_permission_message">This permission let the application get your precise current location</string>
 
     <!-- DISCOVER -->
+    <string name="discover">Discover</string>
     <string name="arousal">Arousal</string>
     <string name="valence">Valence</string>
     <string name="energic">Energic</string>
@@ -85,9 +86,12 @@
     <string name="rights_reserved">All rights reserved</string>
 
     <!-- TRACK -->
+    <string name="track">Track</string>
+    <string name="playlist">Playlist</string>
     <string name="playlist_by_artist">Playlist by artist</string>
     <string name="playlist_by_track">Playlist by track</string>
     <string name="add_favorites">Add to favorites</string>
+    <string name="remove_favorites">Remove from favorites</string>
     <string name="share">Share track</string>
     <string name="track_saved">Track saved as favorite</string>
     <string name="track_removed">Track removed from favorites</string>
