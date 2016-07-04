@@ -43,7 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/settings_current_location"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:padding="5dp"/>
 
         <TextView
             android:text="@string/settings_results_number"
@@ -59,11 +62,13 @@
 
         <Button
             android:text="@string/settings_save"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/settings_save_changes"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="20dp"/>
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

@@ -360,7 +360,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:id="@+id/search_button"
-                android:layout_below="@id/genre_all_button" />
+                android:layout_below="@id/genre_all_button"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"/>
         </android.support.percent.PercentRelativeLayout>
     </ScrollView>
 </LinearLayout>
