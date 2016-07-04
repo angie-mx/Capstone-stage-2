@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_about) {
             NavigationUtils.loadActivity(this, AboutActivity.class);
+        } else if (id == R.id.action_favorites) {
+            NavigationUtils.loadActivity(this, FavoritesActivity.class);
         }
 
         return super.onOptionsItemSelected(item);

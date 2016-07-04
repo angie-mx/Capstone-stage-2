@@ -66,6 +66,7 @@
 
     <string name="about">About</string>
     <string name="settings">Settings</string>
+    <string name="favorites">Favorites</string>
 
     <!-- SETTINGS -->
     <string name="settings_popularity">Popularity (range between 0=discover and 100=hit):</string>

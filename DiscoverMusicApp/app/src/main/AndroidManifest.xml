@@ -30,6 +30,7 @@
         <activity android:name=".activities.SettingsActivity" />
         <activity android:name=".activities.PlaylistActivity" />
         <activity android:name=".activities.TrackActivity" />
+        <activity android:name=".activities.FavoritesActivity" />
         <provider
             android:authorities="${applicationId}"
             android:name=".data.AppContentProvider"
