@@ -37,6 +37,7 @@ public final class NavigationUtils {
                 .commit();
     }
 
+    //TODO search and display the first result automatically
     public static void startYoutube(AppCompatActivity activity, String title, String artist) {
         Uri uri = Uri.parse(YOUTUBE_SEARCH_BASE_URL).buildUpon()
                 .appendQueryParameter(SEARCH_QUERY, title + " " + artist)

@@ -35,7 +35,6 @@ public class PlaylistActivity extends AppCompatActivity {
         return this.getIntent().getParcelableExtra(TRACKS_EXTRA_KEY);
     }
 
-    //TODO search and display the first result automatically
     private Fragment createPlaylistFragment(Parcelable parcelable) {
         Fragment playlistFragment = new PlaylistFragment();
         Bundle bundle = new Bundle();
