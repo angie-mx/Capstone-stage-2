@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 import mx.saudade.discovermusicapp.R;
+import mx.saudade.discovermusicapp.activities.TrackActivity;
 import mx.saudade.discovermusicapp.responses.Track;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
 import mx.saudade.discovermusicapp.utils.AdapterUtils;
@@ -37,14 +38,18 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
     public mx.saudade.discovermusicapp.adapters.ViewHolder onCreateViewHolder(ViewGroup parent
             , int viewType) {
         View view = activity.getLayoutInflater().inflate(R.layout.track_item, parent, false);
+
         final ViewHolder holder = new ViewHolder(view);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity, "click " + tracks.get(holder.getAdapterPosition())
-                        , Toast.LENGTH_SHORT).show();
+                Track track = tracks.get(holder.getAdapterPosition());
+                NavigationUtils.loadActivity((AppCompatActivity) activity, TrackActivity.class
+                        , TrackActivity.TRACK_EXTRA_KEY, track);
             }
         });
+
         holder.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +58,7 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
                         , track.getArtist().getName());
             }
         });
+
         holder.setIsRecyclable(false);
         return holder;
     }
