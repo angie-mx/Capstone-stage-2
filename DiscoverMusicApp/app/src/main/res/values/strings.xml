@@ -83,4 +83,8 @@
     <string name="year">July 2016</string>
     <string name="rights_reserved">All rights reserved</string>
 
+    <!-- TRACK -->
+    <string name="playlist_by_artist">Playlist by artist</string>
+    <string name="playlist_by_track">Playlist by track</string>
+
 </resources>

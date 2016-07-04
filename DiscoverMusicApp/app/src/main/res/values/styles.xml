@@ -25,4 +25,8 @@
     <style name="body_text">
         <item name="android:layout_margin">15dp</item>
     </style>
+    <style name="listview" parent="android:Widget.Holo.Light.ListView">
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
 </resources>

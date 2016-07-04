@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/track_title"
+        android:layout_centerHorizontal="true"
+        style="@style/title_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_title"
+        android:layout_toLeftOf="@+id/track_release"
+        android:id="@+id/track_artist"
+        style="@style/footer_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_title"
+        android:layout_alignParentRight="true"
+        android:id="@+id/track_release"
+        style="@style/footer_text"/>
+
+    <ScrollView
+        android:id="@+id/track_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_release"
+        android:layout_above="@+id/track_layout"
+        style="@style/listview">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/track_lyrics"
+                android:layout_margin="10dp"
+                style="@style/body_text"/>
+        </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/track_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+        <Button
+            android:text="@string/playlist_by_track"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/track_by_track"
+            android:layout_weight="1"/>
+        <Button
+            android:text="@string/playlist_by_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/track_by_track"
+            android:id="@+id/track_by_artist"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>
