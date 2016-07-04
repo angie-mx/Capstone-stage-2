@@ -16,6 +16,7 @@ import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.adapters.TrackAdapter;
 import mx.saudade.discovermusicapp.responses.Root;
 import mx.saudade.discovermusicapp.responses.Track;
+import mx.saudade.discovermusicapp.utils.PlaylistUtils;
 
 /**
  * Created by angie on 6/28/16.
@@ -25,8 +26,6 @@ public class PlaylistFragment extends Fragment {
     private static final String TAG = PlaylistFragment.class.getSimpleName();
 
     public static final String TRACKS_KEY = TAG + "_tracks_key";
-
-    private static final int ADAPTER_COLUMNS = 2;
 
     @Nullable
     @Override
@@ -38,18 +37,7 @@ public class PlaylistFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        createRecyclerView();
-    }
-
-    private void createRecyclerView() {
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.playlist_recyclerview);
-        TrackAdapter adapter = new TrackAdapter(getActivity(), getTracks());
-        adapter.setHasStableIds(true);
-        recyclerView.setAdapter(adapter);
-        StaggeredGridLayoutManager sglm =
-                new StaggeredGridLayoutManager(ADAPTER_COLUMNS, StaggeredGridLayoutManager.VERTICAL);
-        sglm.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
-        recyclerView.setLayoutManager(sglm);
+        PlaylistUtils.createRecyclerView(getActivity(), getView(), getTracks());
     }
 
     private List<Track> getTracks() {
