@@ -15,7 +15,14 @@ import mx.saudade.discovermusicapp.responses.LyricsResult;
  */
 public class LyricsService extends TemplateService {
 
+    public static final String TAG = LyricsService.class.getSimpleName();
+
+    public static final String WEB_SERVICE_EVENT = TAG + "_EVENT";
+
+    public static final String WEB_SERVICE_EXTRA = TAG + "_EXTRA";
+
     public static final String ARTIST_EXTRA = "artist_extra";
+
     public static final String SONG_EXTRA = "song_extra";
 
     private final String BASE_URL = "http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect";
@@ -23,7 +30,7 @@ public class LyricsService extends TemplateService {
     private final String QUERY_SONG = "song";
 
     public LyricsService() {
-        super(TAG);
+        super(TAG, WEB_SERVICE_EVENT, WEB_SERVICE_EXTRA);
     }
 
     @Override

@@ -24,12 +24,14 @@ public abstract class TemplateService extends IntentService {
 
     protected static final String TAG = TemplateService.class.getSimpleName();;
 
-    public static final String WEB_SERVICE_EVENT = TAG + "_EVENT";
+    private String event;
 
-    public static final String WEB_SERVICE_EXTRA = TAG + "_EXTRA";
+    private String extra;
 
-    public TemplateService(String tag) {
+    public TemplateService(String tag, String event, String extra) {
         super(tag);
+        this.event = event;
+        this.extra = extra;
     }
 
     @Override
@@ -86,8 +88,8 @@ public abstract class TemplateService extends IntentService {
 
     private void sendMessage(Parcelable parcelable) {
         Log.d(TAG, "Broadcasting result: " + parcelable);
-        Intent intent = new Intent(WEB_SERVICE_EVENT);
-        intent.putExtra(WEB_SERVICE_EXTRA, parcelable);
+        Intent intent = new Intent(event);
+        intent.putExtra(extra, parcelable);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
@@ -108,4 +110,5 @@ public abstract class TemplateService extends IntentService {
     protected abstract Uri getUri(Intent intent);
 
     protected abstract Parcelable getResult(String inputStream) throws Exception;
+
 }

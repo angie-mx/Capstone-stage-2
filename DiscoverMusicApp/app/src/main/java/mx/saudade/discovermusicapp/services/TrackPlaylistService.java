@@ -17,6 +17,12 @@ import mx.saudade.discovermusicapp.utils.PreferencesUtils;
  */
 public class TrackPlaylistService extends TemplateService {
 
+    public static final String TAG = TrackPlaylistService.class.getSimpleName();
+
+    public static final String WEB_SERVICE_EVENT = TAG + "_EVENT";
+
+    public static final String WEB_SERVICE_EXTRA = TAG + "_EXTRA";
+
     public static final String ID_EXTRA = "id_extra";
 
     private final String BASE_URL = "http://musicovery.com/api/V3/playlist.php";
@@ -32,7 +38,7 @@ public class TrackPlaylistService extends TemplateService {
     private final String FORMAT = "xml";
 
     public TrackPlaylistService() {
-        super(TAG);
+        super(TAG, WEB_SERVICE_EVENT, WEB_SERVICE_EXTRA);
     }
 
     @Override

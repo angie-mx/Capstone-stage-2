@@ -18,6 +18,12 @@ import mx.saudade.discovermusicapp.utils.PreferencesUtils;
  */
 public class MoodPlaylistService extends TemplateService {
 
+    public static final String TAG = MoodPlaylistService.class.getSimpleName();
+
+    public static final String WEB_SERVICE_EVENT = TAG + "_EVENT";
+
+    public static final String WEB_SERVICE_EXTRA = TAG + "_EXTRA";
+
     public static final String TRACK_VALENCE_EXTRA = "track_valence_extra";
     public static final String TRACK_AROUSAL_EXTRA = "track_arousal_extra";
     public static final String YEAR_MAX_EXTRA = "year_max_extra";
@@ -57,7 +63,7 @@ public class MoodPlaylistService extends TemplateService {
     private final String FORMAT = "xml";
 
     public MoodPlaylistService() {
-        super(TAG);
+        super(TAG, WEB_SERVICE_EVENT, WEB_SERVICE_EXTRA);
     }
 
     @Override
