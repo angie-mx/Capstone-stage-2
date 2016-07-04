@@ -29,6 +29,7 @@
         <activity android:name=".activities.AboutActivity" />
         <activity android:name=".activities.SettingsActivity" />
         <activity android:name=".activities.PlaylistActivity" />
+        <activity android:name=".activities.TrackActivity" />
         <provider
             android:authorities="${applicationId}"
             android:name=".data.AppContentProvider"
