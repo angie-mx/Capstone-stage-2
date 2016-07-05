@@ -48,6 +48,7 @@
             android:layout_gravity="right|end"
             android:background="@color/colorPrimary"
             android:textColor="@color/white"
+            android:contentDescription="@string/settings_use_my_current_location"
             android:padding="5dp"/>
 
         <TextView
@@ -70,6 +71,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
             android:background="@color/colorPrimary"
+            android:contentDescription="@string/settings_save"
             android:textColor="@color/white"/>
 
     </LinearLayout>
