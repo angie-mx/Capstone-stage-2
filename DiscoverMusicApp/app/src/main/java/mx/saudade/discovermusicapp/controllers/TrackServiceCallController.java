@@ -7,6 +7,7 @@ import mx.saudade.discovermusicapp.responses.Track;
 import mx.saudade.discovermusicapp.services.ArtistPlaylistService;
 import mx.saudade.discovermusicapp.services.LyricsService;
 import mx.saudade.discovermusicapp.services.TrackPlaylistService;
+import mx.saudade.discovermusicapp.services.YoutubeService;
 
 /**
  * Created by angie on 7/3/16.
@@ -44,6 +45,18 @@ public class TrackServiceCallController {
     private static Intent createSearchPlaylistByArtist(Activity activity, Track track) {
         Intent intent = new Intent(activity, ArtistPlaylistService.class);
         intent.putExtra(ArtistPlaylistService.ARTIST_ID_EXTRA, track.getArtist().getMbid());
+        return intent;
+    }
+
+    public static void startYoutubeService(Activity activity, Track track) {
+        Intent intent = createYoutubeSearch(activity, track);
+        activity.startService(intent);
+    }
+
+    private static Intent createYoutubeSearch(Activity activity, Track track) {
+        Intent intent = new Intent(activity, YoutubeService.class);
+        intent.putExtra(YoutubeService.SEARCH_ID_EXTRA, track.getTitle()
+                + " " + track.getArtist().getName());
         return intent;
     }
 

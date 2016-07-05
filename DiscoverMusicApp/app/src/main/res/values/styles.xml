@@ -26,6 +26,12 @@
         <item name="android:textStyle">italic</item>
         <item name="android:layout_margin">15dp</item>
     </style>
+    <style name="footer_text_no_margin" parent="footer_text">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
     <style name="body_text">
         <item name="android:layout_margin">15dp</item>
     </style>

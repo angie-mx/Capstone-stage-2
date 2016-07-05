@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -15,10 +17,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import org.apache.commons.lang3.StringUtils;
 
 import mx.saudade.discovermusicapp.AnalyticsApplication;
+import mx.saudade.discovermusicapp.BuildConfig;
 import mx.saudade.discovermusicapp.R;
 import mx.saudade.discovermusicapp.activities.PlaylistActivity;
 import mx.saudade.discovermusicapp.controllers.TrackServiceCallController;
@@ -27,19 +35,24 @@ import mx.saudade.discovermusicapp.responses.Track;
 import mx.saudade.discovermusicapp.services.ArtistPlaylistService;
 import mx.saudade.discovermusicapp.services.LyricsService;
 import mx.saudade.discovermusicapp.services.TrackPlaylistService;
+import mx.saudade.discovermusicapp.services.YoutubeService;
 import mx.saudade.discovermusicapp.utils.NavigationUtils;
 import mx.saudade.discovermusicapp.utils.ConnectivityUtils;
 
 /**
  * Created by angie on 7/3/16.
  */
-public class TrackFragment extends Fragment {
+public class TrackFragment extends Fragment implements YouTubePlayer.OnInitializedListener {
 
     private static final String TAG = TrackFragment.class.getSimpleName();
 
     public static final String TRACK_KEY = TAG + "_track_key";
 
     private Track track;
+
+    private YouTubePlayerSupportFragment mYoutubePlayerFragment;
+
+    private String youtubeId;
 
     @Nullable
     @Override
@@ -53,6 +66,7 @@ public class TrackFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         TrackServiceCallController.searchLyric(getActivity(), track);
+        TrackServiceCallController.startYoutubeService(getActivity(), track);
         initViews();
     }
 
@@ -65,6 +79,8 @@ public class TrackFragment extends Fragment {
                 trackPlaylistMessageReceiver);
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(
                 artistPlaylistMessageReceiver);
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(
+                                youtubeVideoMessageReceiver);
     }
 
     @Override
@@ -76,6 +92,8 @@ public class TrackFragment extends Fragment {
                 trackPlaylistMessageReceiver, new IntentFilter(TrackPlaylistService.WEB_SERVICE_EVENT));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
                 artistPlaylistMessageReceiver, new IntentFilter(ArtistPlaylistService.WEB_SERVICE_EVENT));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+                                youtubeVideoMessageReceiver, new IntentFilter(YoutubeService.WEB_SERVICE_EVENT));
     }
 
     private void initViews() {
@@ -146,6 +164,23 @@ public class TrackFragment extends Fragment {
         }
     };
 
+    private BroadcastReceiver youtubeVideoMessageReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                youtubeId = intent.getStringExtra(YoutubeService.WEB_SERVICE_EXTRA);
+                initYoutubeFragment();
+            }
+    };
+
+    private void initYoutubeFragment() {
+        mYoutubePlayerFragment = new YouTubePlayerSupportFragment();
+        mYoutubePlayerFragment.initialize(BuildConfig.GOOGLE_API_KEY, this);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_youtube_player, mYoutubePlayerFragment);
+        fragmentTransaction.commit();
+    }
+
     private TextView getTextView(int id) {
         return (TextView) getView().findViewById(id);
     }
@@ -154,4 +189,22 @@ public class TrackFragment extends Fragment {
         return (Button) getView().findViewById(id);
     }
 
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer
+            , boolean b) {
+        if(!b){
+            youTubePlayer.cueVideo(youtubeId);
+        }
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider
+            , YouTubeInitializationResult youTubeInitializationResult) {
+        if (youTubeInitializationResult.isUserRecoverableError()) {
+            youTubeInitializationResult.getErrorDialog(this.getActivity(), 1).show();
+        } else {
+            Toast.makeText(this.getActivity(), "YouTubePlayer.onInitializationFailure(): "
+                    + youTubeInitializationResult.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
 }
