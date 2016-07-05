@@ -19,10 +19,6 @@ public final class NavigationUtils {
 
     private static final String TAG = NavigationUtils.class.getSimpleName();
 
-    private static final String YOUTUBE_SEARCH_BASE_URL = "https://www.youtube.com/results";
-
-    private static final String SEARCH_QUERY = "search_query";
-
     public static void loadActivity(AppCompatActivity activity, Class clz) {
         Intent i = new Intent();
         i.setClass(activity, clz);
@@ -41,15 +37,6 @@ public final class NavigationUtils {
         activity.getSupportFragmentManager().beginTransaction()
                 .add(R.id.activity_fragment_container, fragment)
                 .commit();
-    }
-
-    //TODO search and display the first result automatically
-    public static void startYoutube(AppCompatActivity activity, String title, String artist) {
-        Uri uri = Uri.parse(YOUTUBE_SEARCH_BASE_URL).buildUpon()
-                .appendQueryParameter(SEARCH_QUERY, title + " " + artist)
-                .build();
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        activity.startActivity(intent);
     }
 
     public static void share(Application application, ShareActionProvider provider, String message) {

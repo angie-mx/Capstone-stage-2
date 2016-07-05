@@ -60,18 +60,6 @@ public class TrackAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
         });
 
-        holder.play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!ConnectivityUtils.checkConnectivity(activity)) {
-                    return;
-                }
-                Track track = tracks.get(holder.getAdapterPosition());
-                NavigationUtils.startYoutube((AppCompatActivity) activity, track.getTitle()
-                        , track.getArtist().getName());
-            }
-        });
-
         holder.setIsRecyclable(false);
         return holder;
     }
@@ -115,14 +103,12 @@ class ViewHolder extends RecyclerView.ViewHolder {
     public RelativeLayout layout;
     public TextView title;
     public TextView artist;
-    public ImageButton play;
 
     public ViewHolder(View itemView) {
         super(itemView);
         layout = (RelativeLayout) itemView.findViewById(R.id.item_layout);
         title = (TextView) itemView.findViewById(R.id.item_title);
         artist = (TextView) itemView.findViewById(R.id.item_artist);
-        play = (ImageButton) itemView.findViewById(R.id.item_play);
     }
 
 }
