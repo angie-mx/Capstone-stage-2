@@ -1,6 +1,8 @@
 package mx.saudade.discovermusicapp;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -33,5 +35,11 @@ public class AnalyticsApplication extends Application {
                 .setAction(action)
                 .setLabel(label)
                 .build());
+    }
+
+    @Override
+    public void attachBaseContext(Context base) {
+        MultiDex.install(base);
+        super.attachBaseContext(base);
     }
 }
